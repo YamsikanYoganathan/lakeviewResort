@@ -1,0 +1,156 @@
+import {
+  MapPinIcon,
+  PhoneIcon,
+  EnvelopeIcon,
+} from "@heroicons/react/24/outline";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+
+export default function Contact() {
+  return (
+    <>
+      <Navbar />
+      <div className="bg-white py-16 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-4xl font-semibold tracking-tight text-gray-950 sm:text-5xl text-center">
+            Enquire About Lakeview Cottages
+          </h2>
+          <p className="mt-4 text-lg text-gray-600 text-center max-w-xl mx-auto">
+            Contact us for pricing, availability, or to book your next peaceful
+            escape.
+          </p>
+
+          <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            {/* Contact Details */}
+            <div className="space-y-8">
+              <div className="flex items-start gap-4">
+                <PhoneIcon className="h-8 w-8 text-green-600 shrink-0" />
+                <div>
+                  <p className="text-base text-gray-800">+1 (123) 456-7890</p>
+                  <p className="text-sm text-gray-500">
+                    Available 9am - 6pm daily
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <EnvelopeIcon className="h-8 w-8 text-green-600 shrink-0" />
+                <div>
+                  <p className="text-base text-gray-800">
+                    info@lakeviewcottages.com
+                  </p>
+                  <p className="text-sm text-gray-500">
+                    We typically respond within 24 hours
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <MapPinIcon className="h-8 w-8 text-green-600 shrink-0" />
+                <div>
+                  <p className="text-base text-gray-800">
+                    123 Lakeview Road, Nature City
+                  </p>
+                  <p className="text-sm text-gray-500">
+                    Find us easily via Google Maps
+                  </p>
+                </div>
+              </div>
+              <div className="aspect-video rounded-md overflow-hidden mt-12">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019871762875!2d-122.4194154846815!3d37.77492977975966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c5ae34dd7%3A0xc5b00e6a3dc8e2d!2sLake!5e0!3m2!1sen!2sus!4v1615845296579!5m2!1sen!2sus"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Lakeview Cottages Location"
+                ></iframe>
+              </div>
+            </div>
+
+            {/* Enquiry Form */}
+            <div className="bg-gray-50/60 p-6 sm:p-8 rounded-md  w-full">
+              <h2 className="text-xl font-semibold tracking-tight text-gray-950 sm:text-2xl text-start mb-4">
+                Enquiry Form
+              </h2>
+              <form action="#" method="POST" className="space-y-6">
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-900"
+                  >
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    autoComplete="name"
+                    placeholder="Your full name"
+                    className="mt-2 block w-full rounded-md border border-gray-300 px-4 py-3 focus:border-green-600 focus:ring-green-600"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-900"
+                  >
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    autoComplete="email"
+                    placeholder="you@example.com"
+                    className="mt-2 block w-full rounded-md border border-gray-300 px-4 py-3 focus:border-green-600 focus:ring-green-600"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-medium text-gray-900"
+                  >
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    id="phone"
+                    autoComplete="tel"
+                    placeholder="Your phone number"
+                    className="mt-2 block w-full rounded-md border border-gray-300 px-4 py-3 focus:border-green-600 focus:ring-green-600"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-900"
+                  >
+                    Your Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    placeholder="Let us know your preferred dates, number of guests, or any questions."
+                    className="mt-2 block w-full rounded-md border border-gray-300 px-4 py-3 focus:border-green-600 focus:ring-green-600"
+                  ></textarea>
+                </div>
+                <div>
+                  <button
+                    type="submit"
+                    className="w-full rounded-md bg-green-600 px-4 py-3 text-white font-semibold hover:bg-green-700 transition"
+                  >
+                    Submit Enquiry
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </>
+  );
+}
