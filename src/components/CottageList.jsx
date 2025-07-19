@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import cottage1 from '../assets/cottage1.jpg';
 import cottage2 from '../assets/cottage2.jpg';
 import cottage3 from '../assets/cottage3.jpg';
@@ -8,12 +8,11 @@ import cottage5 from '../assets/cottage5.jpg';
 import cottage6 from '../assets/cottage6.jpg';
 import cottage7 from '../assets/cottage7.jpg';
 
-
 const cottages = [
   {
     id: 1,
     name: 'Cottage 1',
-    href: '/cottages/lakeview',
+    href: '/cottages/cottage-1',
     imageSrc: cottage1,
     imageAlt: 'Lakeview Cottage exterior with lake view.',
     description: 'Cozy lakefront stay with beautiful sunrise views.',
@@ -21,7 +20,7 @@ const cottages = [
   {
     id: 2,
     name: 'Cottage 2',
-    href: '/cottages/forest',
+    href: '/cottages/cottage-2',
     imageSrc: cottage2,
     imageAlt: 'Forest Retreat nestled in trees.',
     description: 'Peaceful forest cottage surrounded by nature.',
@@ -29,7 +28,7 @@ const cottages = [
   {
     id: 3,
     name: 'Cottage 3',
-    href: '/cottages/family',
+    href: '/cottages/cottage-3',
     imageSrc: cottage3,
     imageAlt: 'Family Cottage with spacious yard.',
     description: 'Spacious accommodation perfect for families.',
@@ -37,7 +36,7 @@ const cottages = [
   {
     id: 4,
     name: 'Cottage 4',
-    href: '/cottages/luxury',
+    href: '/cottages/cottage-4',
     imageSrc: cottage4,
     imageAlt: 'Luxury Cottage with premium design.',
     description: 'Premium amenities and comfort for your stay.',
@@ -45,7 +44,7 @@ const cottages = [
   {
     id: 5,
     name: 'Cottage 5',
-    href: '/cottages/romantic',
+    href: '/cottages/cottage-5',
     imageSrc: cottage5,
     imageAlt: 'Romantic Cabin for couples.',
     description: 'Perfect getaway for couples by the lake.',
@@ -53,7 +52,7 @@ const cottages = [
   {
     id: 6,
     name: 'Cottage 6',
-    href: '/cottages/adventure',
+    href: '/cottages/cottage-6',
     imageSrc: cottage6,
     imageAlt: 'Adventure Cabin for nature lovers.',
     description: 'For those seeking a bit of adventure.',
@@ -61,7 +60,7 @@ const cottages = [
   {
     id: 7,
     name: 'Cottage 7',
-    href: '/cottages/hillside',
+    href: '/cottages/cottage-7',
     imageSrc: cottage7,
     imageAlt: 'Hillside Cottage with panoramic views.',
     description: 'Stay on the hillside with panoramic views.',
@@ -72,7 +71,7 @@ const cottages = [
 export default function CottageList() {
   return (
     <div className="bg-white">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+      <div className="mx-auto max-w-2xl px-4 py-12 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <h2 className="text-4xl font-semibold tracking-tight text-gray-950 sm:text-5xl text-center">Our Cottages</h2>
         <p className="mt-4 text-lg text-gray-600 text-center mx-auto">We offer fully equipped, modern self-catered cottages.</p>
 

@@ -10,7 +10,7 @@ export default function Contact() {
   return (
     <>
       <Navbar />
-      <div className="bg-white py-16 px-4 sm:px-6 lg:px-8">
+      <div className="bg-white py-12 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <h2 className="text-4xl font-semibold tracking-tight text-gray-950 sm:text-5xl text-center">
             Enquire About Lakeview Cottages
@@ -26,9 +26,9 @@ export default function Contact() {
               <div className="flex items-start gap-4">
                 <PhoneIcon className="h-8 w-8 text-green-600 shrink-0" />
                 <div>
-                  <p className="text-base text-gray-800">+1 (123) 456-7890</p>
+                  <p className="text-base text-gray-800">+1 705-282-2888</p>
                   <p className="text-sm text-gray-500">
-                    Available 9am - 6pm daily
+                    Available 9am - 8pm daily
                   </p>
                 </div>
               </div>
@@ -47,7 +47,7 @@ export default function Contact() {
                 <MapPinIcon className="h-8 w-8 text-green-600 shrink-0" />
                 <div>
                   <p className="text-base text-gray-800">
-                    123 Lakeview Road, Nature City
+                    879 Lakeshore Rd, Kagawong, ON P0P 1J0, Canada
                   </p>
                   <p className="text-sm text-gray-500">
                     Find us easily via Google Maps
@@ -56,7 +56,7 @@ export default function Contact() {
               </div>
               <div className="aspect-video rounded-md overflow-hidden mt-12">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019871762875!2d-122.4194154846815!3d37.77492977975966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c5ae34dd7%3A0xc5b00e6a3dc8e2d!2sLake!5e0!3m2!1sen!2sus!4v1615845296579!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4593.272581932917!2d-82.26375740000002!3d45.878028900000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4d3228f1178d9e59%3A0xa1922cfd3b9c4d63!2sLakeview%20Resort!5e1!3m2!1sen!2slk!4v1752821619148!5m2!1sen!2slk"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

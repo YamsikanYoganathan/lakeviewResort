@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function EnquiryButton({ className }) {
+export default function EnquiryButton({ className = "" }) {
   return (
     <a
       href="/contact"

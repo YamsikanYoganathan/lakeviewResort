@@ -170,7 +170,7 @@ export default function Navbar() {
               <span>Accommodations</span>
               <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
             </PopoverButton>
-            <PopoverPanel className="w-full mt-1 rounded-lg bg-white shadow">
+            <PopoverPanel className="w-full mt-1 rounded-lg bg-white">
               <div className="p-2 flex flex-col items-center justify-between text-center gap-2">
                 {solutions.map((item) => (
                   <a
