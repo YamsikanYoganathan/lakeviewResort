@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link} from 'react-router-dom';
-import cottage1 from '../assets/cottage1.jpg';
-import cottage2 from '../assets/cottage2.jpg';
-import cottage3 from '../assets/cottage3.jpg';
-import cottage4 from '../assets/cottage4.jpg';
-import cottage5 from '../assets/cottage5.jpg';
-import cottage6 from '../assets/cottage6.jpg';
-import cottage7 from '../assets/cottage7.jpg';
+import cottage1 from '../assets/cottage-1-exterior.webp';
+import cottage2 from '../assets/cottage-2-exterior.webp';
+import cottage3 from '../assets/cottage-3-exterior.webp';
+import cottage4 from '../assets/cottage-4-exterior.webp';
+import cottage5 from '../assets/cottage-5-exterior.webp';
+import cottage6 from '../assets/cottage-6-exterior.webp';
+import cottage7 from '../assets/cottage-7-exterior.webp';
 
 const cottages = [
   {
