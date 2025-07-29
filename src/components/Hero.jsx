@@ -82,7 +82,7 @@ export default function Hero() {
             alt={cottage.title}
             className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-green-950/60 to-black/80 flex flex-col justify-center items-center text-center px-4">
+          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-green-950/60 to-black/80 backdrop-blur-xs flex flex-col justify-center items-center text-center px-4">
             <h1 className="text-5xl sm:text-8xl  xl:text-[8rem] font-extrabold pb-5 tracking-wide bg-gradient-to-br from-lime-300 via-green-400 to-emerald-600 bg-clip-text text-transparent font-[Sarina] drop-shadow-lg mb-8 animate-fadeIn">
               {cottage.title}
             </h1>

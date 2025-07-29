@@ -4,41 +4,40 @@ import boating from "../assets/boating.webp";
 import hiking from "../assets/hiking.webp";
 import waterfall from "../assets/waterfall.webp";
 import natureview from "../assets/natureView.webp";
-// import fishing from '../assets/fishing.webp';
 
 const activities = [
   {
-    title: "Hiking Trails",
+    title: "Scenic Hiking Trails",
     description:
-      "Explore scenic hiking trails through forest and lakeside paths perfect for nature enthusiasts.",
+      "Wander through breathtaking trails surrounded by forest and lakeside beauty.",
     image: hiking,
     alt: "Guest hiking through trails near Lakeview Resort.",
   },
   {
-    title: "Lake View Relaxation",
+    title: "Peaceful Lakeview Mornings",
     description:
-      "Enjoy peaceful mornings with sunrise views over the lake, perfect for meditation and relaxation.",
+      "Begin your day with tranquil lake views and calming natural surroundings.",
     image: lakeview,
     alt: "View of the lake from the Lakeview Cottage during sunrise.",
   },
   {
-    title: "Camping & Stargazing",
+    title: "Refreshing Waterfall Spot",
     description:
-      "Pitch a tent or enjoy a night under the stars with clear skies and the sounds of nature.",
+      "Cool off near a hidden waterfall surrounded by lush greenery—perfect for photos and relaxation.",
     image: waterfall,
-    alt: "Campfire and tents set up near the cottages at Lakeview Resort.",
+    alt: "Waterfall near the Lakeview Resort cottages.",
   },
   {
-    title: "BBQ & Family Gatherings",
+    title: "Nature Viewpoints & Scenic Beauty",
     description:
-      "We offer BBQ areas where you can prepare meals and enjoy family time surrounded by serene nature.",
+      "Capture panoramic views of the lush landscape and peaceful surroundings from our scenic spots.",
     image: natureview,
-    alt: "Family enjoying BBQ near cottages at Lakeview Resort.",
+    alt: "Nature viewpoint with scenic landscapes at Lakeview Resort.",
   },
   {
-    title: "Fishing Adventures",
+    title: "Relaxing Boat & Fishing Rides",
     description:
-      "Bring your fishing gear and catch fresh fish from our clean, beautiful lake surrounded by nature.",
+      "Unwind on a boat ride or try fishing in the serene, clean lake waters.",
     image: boating,
     alt: "Guest fishing by the lake at Lakeview Resort.",
   },
@@ -55,25 +54,12 @@ export default function CottageActivityGrid() {
           Discover your next adventure
         </p>
 
-        <div
-          className="
-          mt-12 
-          grid 
-          grid-cols-1 
-          gap-6 
-          sm:grid-cols-2 
-          md:grid-cols-3 
-          lg:grid-cols-4 
-          auto-rows-[320px] 
-          justify-center 
-          mx-auto
-        "
-        >
+        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[320px] justify-center">
           {activities.map((activity, index) => (
             <div
               key={index}
               className={`
-                relative flex flex-col overflow-hidden rounded-2xl bg-white shadow hover:shadow-lg transition-shadow duration-300
+                relative flex flex-col overflow-hidden rounded-2xl shadow-lg transition-shadow duration-300 hover:shadow-xl
                 ${
                   index === 0
                     ? "sm:row-span-2 md:row-span-1 md:col-span-1 lg:row-span-2"
@@ -104,9 +90,9 @@ export default function CottageActivityGrid() {
               <img
                 src={activity.image}
                 alt={activity.alt}
-                className="w-full object-cover object-center h-full transition-transform duration-300 group-hover:scale-105"
+                className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-black/30 flex flex-col justify-end p-6">
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/70 to-transparent p-6 flex flex-col justify-end">
                 <h3 className="text-lg font-semibold text-white">
                   {activity.title}
                 </h3>
