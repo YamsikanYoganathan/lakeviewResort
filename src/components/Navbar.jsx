@@ -71,19 +71,25 @@ export default function Navbar() {
   const location = useLocation();
   const [hasScrolled, setHasScrolled] = useState(false);
 
+  const isHomePage = location.pathname === "/";
+
   useEffect(() => {
     const onScroll = () => setHasScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const navClass = classNames(
+    "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+    isHomePage && !hasScrolled
+      ? "bg-transparent text-white"
+      : "bg-white text-black shadow"
+  );
+
+  const logoColor = isHomePage && !hasScrolled ? "text-green-400" : "text-green-700";
+
   return (
-    <Disclosure
-      as="nav"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        hasScrolled ? "bg-white text-black shadow" : "bg-transparent text-white sm:backdrop-blur-none md:py-8"
-      }`}
-    >
+    <Disclosure as="nav" className={navClass}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           {/* Mobile menu button */}
@@ -104,9 +110,7 @@ export default function Navbar() {
             <div className="flex shrink-0 items-center">
               <Link
                 to="/"
-                className={`text-xl md:text-2xl font-bold tracking-tight ${
-                  hasScrolled ? "text-green-700" : "text-green-400"
-                }`}
+                className={`text-xl md:text-2xl font-bold tracking-tight ${logoColor}`}
               >
                 Lakeview Resort
               </Link>
@@ -120,9 +124,9 @@ export default function Navbar() {
                 <PopoverPanel className="absolute left-0 z-20 mt-6 w-64 rounded-md bg-white border border-gray-200 shadow">
                   <div className="p-2">
                     {solutions.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.href}
                         className="flex items-start px-4 py-3 rounded-lg hover:bg-gray-50 transition"
                       >
                         <item.icon className="h-6 w-6 text-gray-600 mr-3" />
@@ -134,15 +138,15 @@ export default function Navbar() {
                             {item.description}
                           </p>
                         </div>
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </PopoverPanel>
               </Popover>
               {navigation.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
+                  to={item.href}
                   className={classNames(
                     location.pathname === item.href
                       ? "font-semibold"
@@ -151,7 +155,7 @@ export default function Navbar() {
                   )}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
               <EnquiryButton className="ms-6" />
             </div>
@@ -161,11 +165,9 @@ export default function Navbar() {
 
       {/* Mobile nav panel */}
       <DisclosurePanel
-        className={`sm:hidden transition-all duration-300 ${
-          hasScrolled
-            ? "bg-white text-black"
-            : "bg-transparent text-white backdrop-blur-lg"
-        }`}
+        className={classNames(
+          "sm:hidden transition-all duration-300 bg-white text-black shadow"
+        )}
       >
         <div className="space-y-6 px-2 pt-2 pb-3 flex flex-col items-center h-screen justify-center">
           <Popover className="w-full">
@@ -173,21 +175,17 @@ export default function Navbar() {
               <span>Accommodations</span>
               <ChevronDownIcon className="h-5 w-5" />
             </PopoverButton>
-            <PopoverPanel
-              className={`w-full mt-1 rounded-lg ${
-                hasScrolled ? "bg-white text-black" : "bg-white text-black"
-              }`}
-            >
+            <PopoverPanel className="w-full mt-1 rounded-lg bg-white text-black">
               <div className="p-2 flex flex-col items-center gap-2">
                 {solutions.map((item) => (
-                  <a
+                  <Link
                     key={item.name}
-                    href={item.href}
+                    to={item.href}
                     className="flex items-center justify-center gap-2 p-2 rounded hover:bg-gray-100 transition min-w-48"
                   >
                     <item.icon className="h-6 w-6 text-gray-600" />
                     <span className="text-lg">{item.name}</span>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </PopoverPanel>
@@ -195,8 +193,8 @@ export default function Navbar() {
           {navigation.map((item) => (
             <DisclosureButton
               key={item.name}
-              as="a"
-              href={item.href}
+              as={Link}
+              to={item.href}
               className="block rounded-md px-3 py-2 transition text-2xl font-medium"
             >
               {item.name}

@@ -83,7 +83,7 @@ export default function Hero() {
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-green-950/60 to-black/80 backdrop-blur-xs flex flex-col justify-center items-center text-center px-4">
-            <h1 className="text-5xl sm:text-8xl  xl:text-[8rem] font-extrabold pb-5 tracking-wide bg-gradient-to-br from-lime-300 via-green-400 to-emerald-600 bg-clip-text text-transparent font-[Sarina] drop-shadow-lg mb-8 animate-fadeIn">
+            <h1 className="text-7xl sm:text-9xl  xl:text-[12rem] font-extrabold pb-5 tracking-tight bg-gradient-to-br from-lime-300 via-green-400 to-emerald-600 bg-clip-text text-transparent drop-shadow-lg mb-4 animate-fadeIn">
               {cottage.title}
             </h1>
             <p className="text-white text-base sm:text-xl lg:text-2xl max-w-2xl mb-10 leading-relaxed tracking-wide drop-shadow-md animate-fadeIn delay-200">
@@ -92,7 +92,7 @@ export default function Hero() {
             <div className="flex flex-wrap justify-center items-center gap-4 animate-fadeIn delay-300">
               <EnquiryButton className="px-6 py-3 sm:px-8 sm:py-3 text-sm sm:text-lg font-medium" />
               <Link
-                to={cottage.link}
+                to={'/cottages'}
                 className="px-6 py-2.5 sm:px-8 sm:py-2.5 text-sm sm:text-lg font-medium border-2 border-white text-white hover:bg-white hover:text-black transition rounded-lg"
               >
                 More Details

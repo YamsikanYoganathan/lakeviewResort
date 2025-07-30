@@ -10,7 +10,7 @@ export default function Contact() {
   return (
     <>
       <Navbar />
-      <div className="bg-white py-12 px-4 sm:px-6 lg:px-8">
+      <div className="bg-white py-12 px-4 sm:px-6 lg:px-8 mt-16">
         <div className="mx-auto max-w-7xl">
           <h2 className="text-4xl font-semibold tracking-tight text-gray-950 sm:text-5xl text-center">
             Enquire About Lakeview Cottages

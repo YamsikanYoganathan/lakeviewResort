@@ -7,21 +7,45 @@ import {
   FaBed,
   FaBath,
   FaUserFriends,
-  FaCouch,
   FaWifi,
   FaWater,
-  FaCheck  
+  FaCheck,
 } from "react-icons/fa";
 import { IoBed } from "react-icons/io5";
-import { MdFireplace} from "react-icons/md";
+import { MdFireplace } from "react-icons/md";
 import { TbToolsKitchen2 } from "react-icons/tb";
 import { cottagesData } from "../data/cottagesData ";
+
+function DetailCard({ icon, label, value }) {
+  return (
+    <div className="bg-gray-50 p-4 rounded-lg text-center flex flex-col items-center">
+      {icon}
+      <p className="text-lg font-semibold mt-2">{value}</p>
+      <p className="text-sm text-gray-500">{label}</p>
+    </div>
+  );
+}
+
+const featureIcons = {
+  wifi: FaWifi,
+  "Private deck with BBQ": FaCheck,
+  "fully equipped kitchen": TbToolsKitchen2,
+  fireplace: MdFireplace,
+  "lake access": FaWater,
+  Parking: FaCheck,
+};
+
+function getFeatureIcon(feature) {
+  const Icon = featureIcons[feature.toLowerCase()] || FaCheck;
+  return <Icon size={20} className="text-green-600" />;
+}
 
 export default function CottagePage() {
   const { id } = useParams();
   const cottage = cottagesData.find((c) => c.id === id);
   const [mainImage, setMainImage] = useState(cottage?.images[0]);
   const [showGallery, setShowGallery] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null); // For modal
 
   if (!cottage) {
     return (
@@ -34,15 +58,12 @@ export default function CottagePage() {
     );
   }
 
-
-
   const topImages = cottage.images.slice(0, 5);
-  const remainingImages = cottage.images.slice(5);
 
   return (
     <>
       <Navbar />
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 relative">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 relative mt-16">
         <Link
           to="/cottages"
           className="flex items-center text-green-600 hover:text-green-800 mb-6"
@@ -83,31 +104,54 @@ export default function CottagePage() {
             </button>
           </div>
         ) : (
-          <div className="fixed inset-0 bg-white z-50 p-6 overflow-y-scroll">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-semibold">Photo Gallery</h2>
-              <button
-                onClick={() => setShowGallery(false)}
-                className="text-gray-600 hover:text-gray-900"
-              >
-                <XMarkIcon className="w-6 h-6" />
-              </button>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {cottage.images.map((img, index) => (
-                <div key={index} className="overflow-hidden rounded-lg">
-                  <img
-                    src={img}
-                    alt={`Gallery ${index + 1}`}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-              ))}
+          <div className="fixed top-0 left-0 right-0 bg-white z-50 overflow-y-scroll h-full py-8">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className="flex justify-between items-center fixed top-0 left-0 right-0 bg-white py-4 px-4 z-50 mx-auto max-w-7xl">
+                <h2 className="text-2xl font-semibold">Cottages Gallery</h2>
+                <button
+                  onClick={() => setShowGallery(false)}
+                  className="text-gray-600 hover:text-gray-900"
+                >
+                  <XMarkIcon className="w-6 h-6" />
+                </button>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-16">
+                {cottage.images.map((img, index) => (
+                  <div
+                    key={index}
+                    className="overflow-hidden rounded-lg cursor-pointer"
+                    onClick={() => setSelectedImage(img)}
+                  >
+                    <img
+                      src={img}
+                      alt={`Gallery ${index + 1}`}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         )}
 
-        {/* Title, Description, and Details aligned */}
+        {/* Image Modal */}
+        {selectedImage && (
+          <div className="fixed inset-0 bg-tranperency backdrop-blur-xl backdrop-brightness-50 z-50 flex items-center justify-center">
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 text-white hover:text-gray-300"
+            >
+              <XMarkIcon className="w-8 h-8" />
+            </button>
+            <img
+              src={selectedImage}
+              alt="Full View"
+              className="max-w-full max-h-[90vh] rounded-lg shadow-lg"
+            />
+          </div>
+        )}
+
+        {/* Title, Description, and Details */}
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-10 gap-6">
           <div className="lg:w-2/3">
             <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
@@ -148,7 +192,7 @@ export default function CottagePage() {
           </div>
         </div>
 
-        {/* Features Section */}
+        {/* Features */}
         <div className="mb-10">
           <h2 className="text-2xl font-semibold mb-4">Features</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
@@ -164,6 +208,7 @@ export default function CottagePage() {
           </div>
         </div>
 
+        {/* Other Details */}
         {cottage.otherDetails && (
           <div className="mb-6">
             <h2 className="text-2xl font-semibold mb-2">Other Details</h2>
@@ -174,28 +219,4 @@ export default function CottagePage() {
       <Footer />
     </>
   );
-}
-
-function DetailCard({ icon, label, value }) {
-  return (
-    <div className="bg-gray-50 p-4 rounded-lg text-center flex flex-col items-center">
-      {icon}
-      <p className="text-lg font-semibold mt-2">{value}</p>
-      <p className="text-sm text-gray-500">{label}</p>
-    </div>
-  );
-}
-
-  const featureIcons = {
-    "wifi": FaWifi,
-    "Private deck with BBQ":FaCheck ,
-    "fully equipped kitchen": TbToolsKitchen2,
-    "fireplace": MdFireplace,
-    "lake access": FaWater,
-    "Parking": FaCheck   
-  };
-
-function getFeatureIcon(feature) {
-  const Icon = featureIcons[feature.toLowerCase()] || FaCheck;
-  return <Icon size={20} className="text-green-600" />;
 }

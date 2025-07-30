@@ -5,10 +5,13 @@ import Homepage from "./pages/Homepage";
 import Cottages from "./pages/Cottages";
 import Contact from "./pages/Contact";
 import CottagePage from "./pages/CottagePage";
+import ScrollToTop from "./components/ScrollToTop";
+
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="flex flex-col min-h-screen">
         <Routes>
           <Route path="/" element={<Homepage/>} />
