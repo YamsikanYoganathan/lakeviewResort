@@ -45,7 +45,7 @@ export default function CottagePage() {
   const cottage = cottagesData.find((c) => c.id === id);
   const [mainImage, setMainImage] = useState(cottage?.images[0]);
   const [showGallery, setShowGallery] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null); // For modal
+  const [selectedImage, setSelectedImage] = useState(null); 
 
   if (!cottage) {
     return (
