@@ -28,11 +28,11 @@ function DetailCard({ icon, label, value }) {
 
 const featureIcons = {
   wifi: FaWifi,
-  "Private deck with BBQ": FaCheck,
+  "private deck with bbq": FaCheck,
   "fully equipped kitchen": TbToolsKitchen2,
   fireplace: MdFireplace,
   "lake access": FaWater,
-  Parking: FaCheck,
+  parking: FaCheck,
 };
 
 function getFeatureIcon(feature) {
@@ -45,7 +45,8 @@ export default function CottagePage() {
   const cottage = cottagesData.find((c) => c.id === id);
   const [mainImage, setMainImage] = useState(cottage?.images[0]);
   const [showGallery, setShowGallery] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null); 
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [priceTab, setPriceTab] = useState("day");
 
   if (!cottage) {
     return (
@@ -72,7 +73,6 @@ export default function CottagePage() {
           Back to cottages
         </Link>
 
-        {/* Image Layout */}
         {!showGallery ? (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 mb-8 relative">
             <div className="aspect-[4/3] overflow-hidden rounded-lg">
@@ -134,7 +134,6 @@ export default function CottagePage() {
           </div>
         )}
 
-        {/* Image Modal */}
         {selectedImage && (
           <div className="fixed inset-0 bg-tranperency backdrop-blur-xl backdrop-brightness-50 z-50 flex items-center justify-center">
             <button
@@ -151,13 +150,12 @@ export default function CottagePage() {
           </div>
         )}
 
-        {/* Title, Description, and Details */}
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-10 gap-6">
-          <div className="lg:w-2/3">
+          <div className="lg:w-3/4">
             <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
               {cottage.title}
             </h1>
-            <p className="text-lg max-w-2xl text-gray-700 mb-2">
+            <p className="text-lg max-w-4xl text-gray-700 mb-2">
               {cottage.description}
             </p>
             {cottage.specialNote && (
@@ -166,33 +164,78 @@ export default function CottagePage() {
               </p>
             )}
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 gap-4 lg:w-1/3">
-            <DetailCard
-              icon={<FaBed size={24} className="text-green-600 mx-auto" />}
-              label="Bedrooms"
-              value={cottage.details.bedrooms}
-            />
-            <DetailCard
-              icon={<FaBath size={24} className="text-green-600 mx-auto" />}
-              label="Bathrooms"
-              value={cottage.details.bathrooms}
-            />
-            <DetailCard
-              icon={<IoBed size={24} className="text-green-600 mx-auto" />}
-              label="Beds"
-              value={cottage.details.beds}
-            />
-            <DetailCard
-              icon={
-                <FaUserFriends size={24} className="text-green-600 mx-auto" />
-              }
-              label="Guests"
-              value={cottage.details.guests}
-            />
+
+          <div className="lg:w-1/4 rounded-lg overflow-hidden outline-2 outline-green-200">
+            <div className="bg-green-50 p-6 rounded-lg ">
+              <div className="flex space-x-4 mb-4">
+                <button
+                  onClick={() => setPriceTab("day")}
+                  className={`px-4 py-1 rounded-full text-sm font-medium transition-all ${
+                    priceTab === "day"
+                      ? "bg-green-600 text-white"
+                      : "bg-white border border-green-600 text-green-600"
+                  }`}
+                >
+                  Day
+                </button>
+                <button
+                  onClick={() => setPriceTab("week")}
+                  className={`px-4 py-1 rounded-full text-sm font-medium transition-all ${
+                    priceTab === "week"
+                      ? "bg-green-600 text-white"
+                      : "bg-white border border-green-600 text-green-600"
+                  }`}
+                >
+                  Week
+                </button>
+              </div>
+              <div className="flex justify-start items-center gap-1">
+                <div className="text-4xl font-bold text-green-800">
+                  $
+                  {priceTab === "week"
+                    ? cottage.cottagePrice.perWeek
+                    : cottage.cottagePrice.perDay}
+                </div>
+                <div className="text-sm text-gray-700 mt-2">
+                  {priceTab === "week" ? "/ Per Week" : "/ Per Day"}
+                </div>
+              </div>
+
+              <div className="text-sm text-green-600 mt-2.5">
+                Extra Person: $
+                {priceTab === "week"
+                  ? cottage.cottagePrice.extraPersonWeek
+                  : cottage.cottagePrice.extraPersonDay}
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Features */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <DetailCard
+            icon={<FaBed size={24} className="text-green-600 mx-auto" />}
+            label="Bedrooms"
+            value={cottage.details.bedrooms}
+          />
+          <DetailCard
+            icon={<FaBath size={24} className="text-green-600 mx-auto" />}
+            label="Bathrooms"
+            value={cottage.details.bathrooms}
+          />
+          <DetailCard
+            icon={<IoBed size={24} className="text-green-600 mx-auto" />}
+            label="Beds"
+            value={cottage.details.beds}
+          />
+          <DetailCard
+            icon={
+              <FaUserFriends size={24} className="text-green-600 mx-auto" />
+            }
+            label="Guests"
+            value={cottage.details.guests}
+          />
+        </div>
+
         <div className="mb-10">
           <h2 className="text-2xl font-semibold mb-4">Features</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
@@ -208,7 +251,50 @@ export default function CottagePage() {
           </div>
         </div>
 
-        {/* Other Details */}
+        <div className="mt-8 mb-12">
+          <h3 className="text-2xl font-semibold mb-4">Extra Activities</h3>
+          <div className="grid sm:grid-cols-2 gap-6 text-sm text-gray-700">
+            <div className="bg-gray-50 p-6 rounded-lg outline-2 outline-gray-100">
+              <h4 className="font-semibold text-green-700 mb-3 text-lg">
+                Boat & Motor
+              </h4>
+              <ul className="space-y-2">
+                <li className="flex justify-between">
+                  <span>Per Hour</span>
+                  <span>${cottage.extraFunPrice.BoatNMotorPerHour}</span>
+                </li>
+                <li className="flex justify-between">
+                  <span>Per Day</span>
+                  <span>${cottage.extraFunPrice.BoatNMotorPerDay}</span>
+                </li>
+                <li className="flex justify-between">
+                  <span>Per Week</span>
+                  <span>${cottage.extraFunPrice.BoatNMotorPerWeek}</span>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-gray-50 p-6 rounded-lg outline-2 outline-gray-100">
+              <h4 className="font-semibold text-green-700 mb-3 text-lg">
+                Canoe
+              </h4>
+              <ul className="space-y-2">
+                <li className="flex justify-between">
+                  <span>Per Hour</span>
+                  <span>${cottage.extraFunPrice.canoePerHour}</span>
+                </li>
+                <li className="flex justify-between">
+                  <span>Per Day</span>
+                  <span>${cottage.extraFunPrice.canoePerDay}</span>
+                </li>
+                <li className="flex justify-between">
+                  <span>Per Week</span>
+                  <span>${cottage.extraFunPrice.canoePerWeek}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
         {cottage.otherDetails && (
           <div className="mb-6">
             <h2 className="text-2xl font-semibold mb-2">Other Details</h2>

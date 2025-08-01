@@ -1,72 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import cottage1 from "../assets/cottage-1-exterior.webp";
-import cottage2 from "../assets/cottage-2-exterior.webp";
-import cottage3 from "../assets/cottage-3-exterior.webp";
-import cottage4 from "../assets/cottage-4-exterior.webp";
-import cottage5 from "../assets/cottage-5-exterior.webp";
-import cottage6 from "../assets/cottage-6-exterior.webp";
-import cottage7 from "../assets/cottage-7-exterior.webp";
+import { cottagesData } from "../data/cottagesData ";
+import { FaUsers, FaBed } from "react-icons/fa";
 import { ArrowDownRightIcon } from "@heroicons/react/24/outline";
-
-const cottages = [
-  {
-    id: 1,
-    name: "Cottage 1",
-    href: "/cottages/cottage-1",
-    imageSrc: cottage1,
-    imageAlt: "Lakeview Cottage exterior with lake view.",
-    description: "Cozy lakefront stay with beautiful sunrise views.",
-  },
-  {
-    id: 2,
-    name: "Cottage 2",
-    href: "/cottages/cottage-2",
-    imageSrc: cottage2,
-    imageAlt: "Forest Retreat nestled in trees.",
-    description: "Peaceful forest cottage surrounded by nature.",
-  },
-  {
-    id: 3,
-    name: "Cottage 3",
-    href: "/cottages/cottage-3",
-    imageSrc: cottage3,
-    imageAlt: "Family Cottage with spacious yard.",
-    description: "Spacious accommodation perfect for families.",
-  },
-  {
-    id: 4,
-    name: "Cottage 4",
-    href: "/cottages/cottage-4",
-    imageSrc: cottage4,
-    imageAlt: "Luxury Cottage with premium design.",
-    description: "Premium amenities and comfort for your stay.",
-  },
-  {
-    id: 5,
-    name: "Cottage 5",
-    href: "/cottages/cottage-5",
-    imageSrc: cottage5,
-    imageAlt: "Romantic Cabin for couples.",
-    description: "Perfect getaway for couples by the lake.",
-  },
-  {
-    id: 6,
-    name: "Cottage 6",
-    href: "/cottages/cottage-6",
-    imageSrc: cottage6,
-    imageAlt: "Adventure Cabin for nature lovers.",
-    description: "For those seeking a bit of adventure.",
-  },
-  {
-    id: 7,
-    name: "Cottage 7",
-    href: "/cottages/cottage-7",
-    imageSrc: cottage7,
-    imageAlt: "Hillside Cottage with panoramic views.",
-    description: "Stay on the hillside with panoramic views.",
-  },
-];
 
 export default function CottageList() {
   return (
@@ -80,28 +16,45 @@ export default function CottageList() {
           comfort and relaxation.
         </p>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {cottages.map((cottage) => (
+        <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {cottagesData.map((cottage) => (
             <Link
               key={cottage.id}
               to={cottage.href}
-              className="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="relative group overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-transform duration-300 hover:scale-105"
             >
               <img
                 src={cottage.imageSrc}
                 alt={cottage.imageAlt}
-                className="w-full h-68 object-cover object-center transform transition-transform duration-300 group-hover:scale-105"
+                className="w-full h-68 object-cover object-center transform group-hover:scale-105 transition-transform duration-300 saturate-90"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-green-950 via-green-950/45 to-transparent flex flex-col justify-end p-4">
-                <div className="flex items-center justify-start">
-                  <ArrowDownRightIcon className="h-5 w-5 text-gray-50 mr-3" />
-                  <h3 className="text-white text-2xl font-semibold">
-                    {cottage.name}
-                  </h3>
+
+              {/* Bottom 40% gradient overlay */}
+              <div className="absolute bottom-0 left-0 w-full h-[40%] bg-gradient-to-t from-green-950 via-green-900/70 to-transparent px-5 py-4 flex flex-col justify-end">
+                <div className="flex justify-between items-end">
+                  <div>
+                    <h3 className="text-white text-xl font-semibold mb-1">
+                      {cottage.title}
+                    </h3>
+
+                    <div className="flex items-center text-sm text-gray-200 gap-4">
+                      <div className="flex items-center gap-1">
+                        <FaUsers className="text-white" />
+                        <span>{cottage.details.guests} Guests</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <FaBed className="text-white" />
+                        <span>{cottage.details.beds} Beds</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="inline-flex items-center text-sm text-white font-medium hover:text-green-400 transition-colors duration-200">
+                      Full Info
+                      <ArrowDownRightIcon className="ml-2 w-4 h-4" />
+                    </div>
+                  </div>
                 </div>
-                {/* <p className="text-sm text-gray-200 mt-1">
-                  {cottage.description}
-                </p> */}
               </div>
             </Link>
           ))}

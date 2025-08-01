@@ -60,6 +60,9 @@ export const cottagesData = [
     description:
       "A 2 bedroom cottage for up to 4 people, consisting of 2 double beds, 3 piece bathroom, separate dining area and a fireplace in the living room.",
     specialNote: "Pets allowed, perfect for families.",
+    href: "/cottages/cottage-1",
+    imageSrc: cottage1Exterior,
+    imageAlt: "Lakeview Cottage exterior with lake view.",
     images: [
       cottage1Exterior,
       cottage1Bedrooom1,
@@ -77,13 +80,27 @@ export const cottagesData = [
       beds: 2,
       guests: 4,
     },
+    cottagePrice: {
+      perDay: 225,
+      perWeek: 1025,
+      extraPersonDay: 50,
+      extraPersonWeek: 210,
+    },
+    extraFunPrice: {
+      BoatNMotorPerHour: 50,
+      BoatNMotorPerDay: 100,
+      BoatNMotorPerWeek: 250,
+      canoePerHour: 25,
+      canoePerDay: 50,
+      canoePerWeek: 100,
+    },
     features: [
       "Fully equipped kitchen",
       "Private deck with BBQ",
       "WiFi",
       "Fireplace",
       "Lake access",
-      "Parking"
+      "Parking",
     ],
     otherDetails:
       "Check-in: 3 PM | Check-out: 11 AM | Free parking available on site.",
@@ -94,6 +111,9 @@ export const cottagesData = [
     description:
       "A 3 bedroom cottage for up to six people, with 1 queen-size bed, 1 double bed, a set of upper and lower bunks, 4 pc. bath with small bathtub, and a fireplace in the combination living/dining area. Electric heat.",
     specialNote: "Pets allowed, perfect for families.",
+    href: "/cottages/cottage-2",
+    imageSrc: cottage2Exterior,
+    imageAlt: "Forest Retreat nestled in trees.",
     images: [
       cottage2Exterior,
       cottage2Bedrooom1,
@@ -112,13 +132,27 @@ export const cottagesData = [
       beds: 2,
       guests: 6,
     },
+    cottagePrice: {
+      perDay: 225,
+      perWeek: 1175,
+      extraPersonDay: 50,
+      extraPersonWeek: 210,
+    },
+    extraFunPrice: {
+      BoatNMotorPerHour: 50,
+      BoatNMotorPerDay: 100,
+      BoatNMotorPerWeek: 250,
+      canoePerHour: 25,
+      canoePerDay: 50,
+      canoePerWeek: 100,
+    },
     features: [
       "Fully equipped kitchen",
       "Private deck with BBQ",
       "WiFi",
       "Fireplace",
       "Lake access",
-      "Parking"
+      "Parking",
     ],
     otherDetails:
       "Check-in: 3 PM | Check-out: 11 AM | Free parking available on site.",
@@ -129,6 +163,9 @@ export const cottagesData = [
     description:
       "A 3 bedroom cottage for up to 6 people consisting of 1 queen size bed, 1 double bed and a set of full twin upper and lower bunks. It has a 3 piece bathroom and a combination kitchen/dining/living area including a woodstove and electric heat.",
     specialNote: "Pets allowed, perfect for families.",
+    href: "/cottages/cottage-3",
+    imageSrc: cottage3Exterior,
+    imageAlt: "Family Cottage with spacious yard.",
     images: [
       cottage3Exterior,
       cottage3Bedrooom1,
@@ -142,13 +179,27 @@ export const cottagesData = [
       beds: 2,
       guests: 6,
     },
+    cottagePrice: {
+      perDay: 255,
+      perWeek: 1175,
+      extraPersonDay: 50,
+      extraPersonWeek: 210,
+    },
+    extraFunPrice: {
+      BoatNMotorPerHour: 50,
+      BoatNMotorPerDay: 100,
+      BoatNMotorPerWeek: 250,
+      canoePerHour: 25,
+      canoePerDay: 50,
+      canoePerWeek: 100,
+    },
     features: [
       "Fully equipped kitchen",
       "Private deck with BBQ",
       "WiFi",
       "Fireplace",
       "Lake access",
-      "Parking"
+      "Parking",
     ],
     otherDetails:
       "Check-in: 3 PM | Check-out: 11 AM | Free parking available on site.",
@@ -159,6 +210,9 @@ export const cottagesData = [
     description:
       "A 3 bedroom cottage for up to 6 people consisting of 1 queen size bed and 2 double beds, a 3 piece bathroom and a combination living/dining/kitchen area, complete with woodstove.",
     specialNote: "Pets allowed, perfect for families.",
+    href: "/cottages/cottage-4",
+    imageSrc: cottage4Exterior,
+    imageAlt: "Luxury Cottage with premium design.",
     images: [
       cottage4Exterior,
       cottage4Bedrooom1,
@@ -173,13 +227,27 @@ export const cottagesData = [
       beds: 3,
       guests: 6,
     },
+    cottagePrice: {
+      perDay: 255,
+      perWeek: 1175,
+      extraPersonDay: 50,
+      extraPersonWeek: 210,
+    },
+    extraFunPrice: {
+      BoatNMotorPerHour: 50,
+      BoatNMotorPerDay: 100,
+      BoatNMotorPerWeek: 250,
+      canoePerHour: 25,
+      canoePerDay: 50,
+      canoePerWeek: 100,
+    },
     features: [
       "Fully equipped kitchen",
       "Private deck with BBQ",
       "WiFi",
       "Fireplace",
       "Lake access",
-      "Parking"
+      "Parking",
     ],
     otherDetails:
       "Check-in: 3 PM | Check-out: 11 AM | Free parking available on site.",
@@ -190,6 +258,9 @@ export const cottagesData = [
     description:
       "A 2 bedroom cottage for up to 4 people with a double bed and a set of full twin upper and lower bunk beds, 3 piece bathroom and a combination living/dining/kitchen area, complete with woodstove.",
     specialNote: "Pets allowed, perfect for families.",
+    href: "/cottages/cottage-5",
+    imageSrc: cottage5Exterior,
+    imageAlt: "Romantic Cabin for couples.",
     images: [
       cottage5Exterior,
       cottage5Bedrooom1,
@@ -205,13 +276,27 @@ export const cottagesData = [
       beds: 2,
       guests: 4,
     },
+    cottagePrice: {
+      perDay: 225,
+      perWeek: 1125,
+      extraPersonDay: 50,
+      extraPersonWeek: 210,
+    },
+    extraFunPrice: {
+      BoatNMotorPerHour: 50,
+      BoatNMotorPerDay: 100,
+      BoatNMotorPerWeek: 250,
+      canoePerHour: 25,
+      canoePerDay: 50,
+      canoePerWeek: 100,
+    },
     features: [
       "Fully equipped kitchen",
       "Private deck with BBQ",
       "WiFi",
       "Fireplace",
       "Lake access",
-      "Parking"
+      "Parking",
     ],
     otherDetails:
       "Check-in: 3 PM | Check-out: 11 AM | Free parking available on site.",
@@ -222,6 +307,9 @@ export const cottagesData = [
     description:
       "A 1 bedroom cottage for 2 people with queen size bed, 3 piece bathroom, kitchen and combination dining/sitting area, with electric heat.",
     specialNote: "Pets allowed, perfect for families.",
+    href: "/cottages/cottage-6",
+    imageSrc: cottage6Exterior,
+    imageAlt: "Adventure Cabin for nature lovers.",
     images: [
       cottage6Exterior,
       cottage6Bedrooom1,
@@ -237,13 +325,27 @@ export const cottagesData = [
       beds: 1,
       guests: 2,
     },
+    cottagePrice: {
+      perDay: 190,
+      perWeek: 925,
+      extraPersonDay: 50,
+      extraPersonWeek: 210,
+    },
+    extraFunPrice: {
+      BoatNMotorPerHour: 50,
+      BoatNMotorPerDay: 100,
+      BoatNMotorPerWeek: 250,
+      canoePerHour: 25,
+      canoePerDay: 50,
+      canoePerWeek: 100,
+    },
     features: [
       "Fully equipped kitchen",
       "Private deck with BBQ",
       "WiFi",
       "Fireplace",
       "Lake access",
-      "Parking"
+      "Parking",
     ],
     otherDetails:
       "Check-in: 3 PM | Check-out: 11 AM | Free parking available on site.",
@@ -254,6 +356,9 @@ export const cottagesData = [
     description:
       "A 4 bedroom cottage for up to 8 people, with 2 double beds and 2 sets of full twin upper and lower bunks, 3 piece bathroom, kitchen/dining area and a large living room with woodstove.",
     specialNote: "Pets allowed, perfect for families.",
+    href: "/cottages/cottage-7",
+    imageSrc: cottage7Exterior,
+    imageAlt: "Hillside Cottage with panoramic views.",
     images: [
       cottage7Exterior,
       cottage7Bedrooom1,
@@ -272,13 +377,27 @@ export const cottagesData = [
       beds: 6,
       guests: 8,
     },
+    cottagePrice: {
+      perDay: 285,
+      perWeek: 1295,
+      extraPersonDay: 50,
+      extraPersonWeek: 210,
+    },
+    extraFunPrice: {
+      BoatNMotorPerHour: 50,
+      BoatNMotorPerDay: 100,
+      BoatNMotorPerWeek: 250,
+      canoePerHour: 25,
+      canoePerDay: 50,
+      canoePerWeek: 100,
+    },
     features: [
       "Fully equipped kitchen",
       "Private deck with BBQ",
       "WiFi",
       "Fireplace",
       "Lake access",
-      "Parking"
+      "Parking",
     ],
     otherDetails:
       "Check-in: 3 PM | Check-out: 11 AM | Free parking available on site.",
