@@ -6,6 +6,9 @@ import Cottages from "./pages/Cottages";
 import Contact from "./pages/Contact";
 import CottagePage from "./pages/CottagePage";
 import ScrollToTop from "./components/ScrollToTop";
+import About from "./pages/About";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsNCondition from "./pages/TermsNCondition";
 
 
 function App() {
@@ -18,6 +21,9 @@ function App() {
           <Route path="/cottages" element={<Cottages/>} />
           <Route path="/cottages/:id" element={<CottagePage />} />
           <Route path="/contact" element={<Contact/>} />
+          <Route path="/about" element={<About/>} />
+          <Route path="/privacyPolicy" element={<PrivacyPolicy/>} />
+          <Route path="/termsNCondition" element={<TermsNCondition/>} />
         </Routes>
       </div>
     </Router>

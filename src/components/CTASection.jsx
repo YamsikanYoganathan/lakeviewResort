@@ -6,7 +6,7 @@ export default function CTASection() {
   return (
     <div className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-2xl text-center px-4 sm:px-6 lg:px-8">
-        <h2 className=" text-green-900 text-4xl font-bold tracking-tight sm:text-5xl">
+        <h2 className=" text-green-900 text-4xl font-semibold tracking-tight sm:text-5xl">
           Ready to plan your perfect cottage getaway?
         </h2>
         <p className="mt-4 text-lg text-green-800">

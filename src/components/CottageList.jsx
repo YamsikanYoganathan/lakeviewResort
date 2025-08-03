@@ -8,7 +8,7 @@ export default function CottageList() {
   return (
     <div className="bg-white mt-8">
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold tracking-tight text-gray-900 text-center sm:text-5xl">
+        <h2 className="text-4xl font-semibold tracking-tight text-gray-900 text-center sm:text-5xl">
           Our Cottages
         </h2>
         <p className="mt-4 text-lg text-gray-600 text-center max-w-xl mx-auto">

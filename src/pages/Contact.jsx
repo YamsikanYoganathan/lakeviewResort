@@ -5,8 +5,32 @@ import {
 } from "@heroicons/react/24/outline";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useState } from "react";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const subject = encodeURIComponent("Lakeview Cottages Enquiry");
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`
+    );
+    window.location.href = `mailto:info@lakeviewcottages.com?subject=${subject}&body=${body}`;
+  };
+
   return (
     <>
       <Navbar />
@@ -16,8 +40,7 @@ export default function Contact() {
             Enquire About Lakeview Cottages
           </h2>
           <p className="mt-4 text-lg text-gray-600 text-center max-w-xl mx-auto">
-            Contact us for pricing, availability, or to book your next peaceful
-            escape.
+            Contact us for pricing, availability, or to book your next peaceful escape.
           </p>
 
           <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
@@ -26,32 +49,33 @@ export default function Contact() {
               <div className="flex items-start gap-4">
                 <PhoneIcon className="h-8 w-8 text-green-600 shrink-0" />
                 <div>
-                  <p className="text-base text-gray-800">+1 705-282-2888</p>
-                  <p className="text-sm text-gray-500">
-                    Available 9am - 8pm daily
-                  </p>
+                  <a href="tel:+17052822888" className="text-base text-gray-800 hover:underline">
+                    +1 705-282-2888
+                  </a>
+                  <p className="text-sm text-gray-500">Available 9am - 8pm daily</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <EnvelopeIcon className="h-8 w-8 text-green-600 shrink-0" />
                 <div>
-                  <p className="text-base text-gray-800">
+                  <a href="mailto:info@lakeviewcottages.com" className="text-base text-gray-800 hover:underline">
                     info@lakeviewcottages.com
-                  </p>
-                  <p className="text-sm text-gray-500">
-                    We typically respond within 24 hours
-                  </p>
+                  </a>
+                  <p className="text-sm text-gray-500">We typically respond within 24 hours</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <MapPinIcon className="h-8 w-8 text-green-600 shrink-0" />
                 <div>
-                  <p className="text-base text-gray-800">
+                  <a
+                    href="https://www.google.com/maps?q=879+Lakeshore+Rd,+Kagawong,+ON+P0P+1J0,+Canada"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-base text-gray-800 hover:underline"
+                  >
                     879 Lakeshore Rd, Kagawong, ON P0P 1J0, Canada
-                  </p>
-                  <p className="text-sm text-gray-500">
-                    Find us easily via Google Maps
-                  </p>
+                  </a>
+                  <p className="text-sm text-gray-500">Find us easily via Google Maps</p>
                 </div>
               </div>
               <div className="aspect-video rounded-md overflow-hidden mt-12">
@@ -69,70 +93,65 @@ export default function Contact() {
             </div>
 
             {/* Enquiry Form */}
-            <div className="bg-gray-50/60 p-6 sm:p-8 rounded-md  w-full">
+            <div className="bg-gray-50/60 p-6 sm:p-8 rounded-md w-full">
               <h2 className="text-xl font-semibold tracking-tight text-gray-950 sm:text-2xl text-start mb-4">
                 Enquiry Form
               </h2>
-              <form action="#" method="POST" className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-gray-900"
-                  >
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-900">
                     Name
                   </label>
                   <input
                     type="text"
                     name="name"
                     id="name"
-                    autoComplete="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
                     placeholder="Your full name"
                     className="mt-2 block w-full rounded-md border border-gray-300 px-4 py-3 focus:border-green-600 focus:ring-green-600"
                   />
                 </div>
                 <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-gray-900"
-                  >
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-900">
                     Email
                   </label>
                   <input
                     type="email"
                     name="email"
                     id="email"
-                    autoComplete="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
                     placeholder="you@example.com"
                     className="mt-2 block w-full rounded-md border border-gray-300 px-4 py-3 focus:border-green-600 focus:ring-green-600"
                   />
                 </div>
                 <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-sm font-medium text-gray-900"
-                  >
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-900">
                     Phone Number
                   </label>
                   <input
                     type="tel"
                     name="phone"
                     id="phone"
-                    autoComplete="tel"
+                    value={formData.phone}
+                    onChange={handleChange}
                     placeholder="Your phone number"
                     className="mt-2 block w-full rounded-md border border-gray-300 px-4 py-3 focus:border-green-600 focus:ring-green-600"
                   />
                 </div>
                 <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-gray-900"
-                  >
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-900">
                     Your Message
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     rows={4}
+                    value={formData.message}
+                    onChange={handleChange}
                     placeholder="Let us know your preferred dates, number of guests, or any questions."
                     className="mt-2 block w-full rounded-md border border-gray-300 px-4 py-3 focus:border-green-600 focus:ring-green-600"
                   ></textarea>

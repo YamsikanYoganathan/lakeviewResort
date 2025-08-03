@@ -30,6 +30,18 @@ export default function Footer() {
               About
             </Link>
             <Link
+              to="/termsNCondition"
+              className="text-green-800 hover:text-green-900 text-sm transition"
+            >
+              Terms and Condition
+            </Link>
+            <Link
+              to="/privacyPolicy"
+              className="text-green-800 hover:text-green-900 text-sm transition"
+            >
+              Privacy Policy
+            </Link>
+            <Link
               to="/contact"
               className="text-green-800 hover:text-green-900 text-sm transition"
             >
