@@ -10,7 +10,7 @@ export default function TermsAndConditions() {
     <>
       <Navbar />
       <Breadcrumb current="Terms & Conditions" />
-      <div className="mt-6 px-6 py-12 max-w-4xl mx-auto text-gray-800 space-y-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-gray-800">
         <Link
           to="/"
           className="flex items-center text-green-600 hover:text-green-800 mb-6"
@@ -18,43 +18,92 @@ export default function TermsAndConditions() {
           <ArrowLeftIcon className="h-4 w-4 mr-2" />
           Back to Homepage
         </Link>
-        <h1 className="text-3xl font-semibold text-green-700">
-          Terms & Conditions
+
+        <h1 className="text-3xl sm:text-4xl font-bold text-green-700 mb-8">
+          Terms &amp; Conditions
         </h1>
-        <p>
-          By using this website and booking with Lakeview Resort, you agree to
-          the following terms:
-        </p>
 
-        <h2 className="text-xl font-semibold">1. Booking & Payment</h2>
-        <p>
-          Reservations are confirmed only upon payment. All rates are subject to
-          change without notice.
-        </p>
+        <section className="space-y-8 text-base leading-relaxed">
+          <div>
+            <h2 className="text-xl font-semibold mb-2">
+              1. Check‑In / Check‑Out
+            </h2>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Check-In after 3:00 PM with photo ID and deposit.</li>
+              <li>Check-Out before 11:00 AM. Late fees apply after 3:00 PM.</li>
+            </ul>
+          </div>
 
-        <h2 className="text-xl font-semibold">2. Cancellation Policy</h2>
-        <p>
-          Cancellations must be made at least 7 days before check-in for a full
-          refund.
-        </p>
+          <div>
+            <h2 className="text-xl font-semibold mb-2">
+              2. Payment & Deposits
+            </h2>
+            <ul className="list-disc list-inside space-y-1">
+              <li>50% deposit required to confirm booking.</li>
+              <li>$150 CAD pre-authorization at check-in for damages.</li>
+            </ul>
+          </div>
 
-        <h2 className="text-xl font-semibold">3. Use of Property</h2>
-        <p>
-          Guests must respect the property, follow safety rules, and avoid
-          damage. Violations may result in additional charges.
-        </p>
+          <div>
+            <h2 className="text-xl font-semibold mb-2">
+              3. Cancellation Policy
+            </h2>
+            <ul className="list-disc list-inside space-y-1">
+              <li>
+                Free cancellation up to 2 days before check-in (15 days for peak
+                season).
+              </li>
+              <li>No-shows lose deposit; no additional charges apply.</li>
+            </ul>
+          </div>
 
-        <h2 className="text-xl font-semibold">4. Liability</h2>
-        <p>
-          Lakeview Resort is not liable for personal injury, loss, or damage
-          during your stay.
-        </p>
+          <div>
+            <h2 className="text-xl font-semibold mb-2">
+              4. Smoking & Fire Policy
+            </h2>
+            <p>
+              No candles, incense, or smoking indoors. Fees may apply for
+              violations.
+            </p>
+          </div>
 
-        <h2 className="text-xl font-semibold">5. Changes to Terms</h2>
-        <p>
-          We reserve the right to modify these terms at any time. Continued use
-          of our site means acceptance of these terms.
-        </p>
+          <div>
+            <h2 className="text-xl font-semibold mb-2">5. Pets</h2>
+            <p>
+              Allowed with $20 CAD fee per night. Must be supervised and waste
+              cleaned.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-semibold mb-2">
+              6. House Rules & Conduct
+            </h2>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Quiet hours: 12 AM – 7 AM.</li>
+              <li>
+                No visitors after 10 PM. Management reserves right to refuse
+                service.
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-semibold mb-2">7. Force Majeure</h2>
+            <p>
+              We are not liable for cancellations due to natural disasters or
+              other events beyond control.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-semibold mb-2">8. Amenity Use</h2>
+            <p>
+              Use kayaks, canoes, and water access at your own risk. Safety
+              rules apply.
+            </p>
+          </div>
+        </section>
       </div>
       <Footer />
     </>

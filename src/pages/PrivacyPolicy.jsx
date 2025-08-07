@@ -10,7 +10,7 @@ export default function PrivacyPolicy() {
     <>
       <Navbar />
       <Breadcrumb current="Privacy Policy" />
-      <div className="mt-6 px-6 py-12 max-w-4xl mx-auto text-gray-800 space-y-6">
+      <div className="px-6 py-12 mx-auto max-w-7xl text-gray-800 space-y-8">
         <Link
           to="/"
           className="flex items-center text-green-600 hover:text-green-800 mb-6"
@@ -18,39 +18,88 @@ export default function PrivacyPolicy() {
           <ArrowLeftIcon className="h-4 w-4 mr-2" />
           Back to Homepage
         </Link>
-        <h1 className="text-3xl font-semibold text-green-700">Privacy Policy</h1>
-        <p>
-          Lakeview Resort values your privacy. This policy outlines how we
-          collect, use, and protect your personal information.
-        </p>
-        <h2 className="text-xl font-semibold">1. Data Collection</h2>
-        <p>
-          We collect data such as your name, email, and booking details when you
-          make a reservation or contact us.
-        </p>
+        <h1 className="text-4xl font-semibold text-green-700">
+          Privacy Policy
+        </h1>
+        <p className="text-sm text-gray-600">Last updated: August 7, 2025</p>
 
-        <h2 className="text-xl font-semibold">2. Usage of Data</h2>
-        <p>
-          Your information is used only to improve our services, process
-          bookings, and communicate with you about your stay.
-        </p>
+        <section>
+          <h2 className="text-xl font-semibold text-green-800 mb-2">
+            1. Information We Collect
+          </h2>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>
+              <strong>Direct Input:</strong> Name, email, phone, and messages
+              submitted via forms.
+            </li>
+            <li>
+              <strong>Analytics:</strong> Browser/device data, pages visited
+              (via cookies).
+            </li>
+            <li>
+              <strong>Third-Parties:</strong> Email, payment, or analytics
+              platforms may collect necessary data.
+            </li>
+          </ul>
+        </section>
 
-        <h2 className="text-xl font-semibold">3. Cookies</h2>
-        <p>
-          Our website uses cookies to enhance user experience. You can disable
-          cookies in your browser settings.
-        </p>
+        <section>
+          <h2 className="text-xl font-semibold text-green-800 mb-2">
+            2. How We Use Your Information
+          </h2>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Responding to enquiries and communication.</li>
+            <li>Sending newsletters and promotional content (if opted in).</li>
+            <li>Security checks and compliance with legal obligations.</li>
+          </ul>
+        </section>
 
-        <h2 className="text-xl font-semibold">4. Security</h2>
-        <p>
-          We use industry-standard practices to safeguard your data and ensure
-          your privacy is respected.
-        </p>
+        <section>
+          <h2 className="text-xl font-semibold text-green-800 mb-2">
+            3. Sharing Personal Information
+          </h2>
+          <p>
+            We may share data with service providers, legal authorities, or
+            during business transfers.
+          </p>
+        </section>
 
-        <h2 className="text-xl font-semibold">5. Contact Us</h2>
-        <p>
-          For privacy-related questions, contact us at info@lakeviewresort.ca
-        </p>
+        <section>
+          <h2 className="text-xl font-semibold text-green-800 mb-2">
+            4. Your Rights
+          </h2>
+          <p>
+            You may request data access, corrections, deletion, or opt-out of
+            marketing communications.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-semibold text-green-800 mb-2">
+            5. Security & Retention
+          </h2>
+          <p>
+            We use reasonable protections, but no system is 100% secure. Data is
+            retained based on legal/business needs.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-semibold text-green-800 mb-2">
+            6. Children’s Privacy
+          </h2>
+          <p>We do not knowingly collect information from children under 16.</p>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-semibold text-green-800 mb-2">
+            7. Policy Updates
+          </h2>
+          <p>
+            This policy may be updated at any time. Please review periodically
+            for any changes.
+          </p>
+        </section>
       </div>
       <Footer />
     </>
