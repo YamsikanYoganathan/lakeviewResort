@@ -52,6 +52,16 @@ import cottage7Diningroom2 from "../assets/cottage-7-diningroom-2.webp";
 import cottage7Bathroom1 from "../assets/cottage-7-bathroom-1.webp";
 import cottage7Bathroom2 from "../assets/cottage-7-bathroom-2.webp";
 import cottage7Bathroom3 from "../assets/cottage-7-bathroom-3.webp";
+import cottage8Bedroom1 from "../assets/cottage-8-bedroom-1.webp";
+import cottage8Bedroom2 from "../assets/cottage-8-bedroom-2.webp";
+import cottage8Bedroom3 from "../assets/cottage-8-bedroom-3.webp";
+import cottage8Bedroom4 from "../assets/cottage-8-bedroom-4.webp";
+import cottage8Kitchen1 from "../assets/cottage-8-kitchen-1.webp";
+import cottage8Kitchen2 from "../assets/cottage-8-kitchen-2.webp";
+import cottage8Mainroom1 from "../assets/cottage-8-mainroom-1.webp";
+import cottage8Mainroom2 from "../assets/cottage-8-mainroom-2.webp";
+import cottage8Exterior from "../assets/cottage-8-exterior.webp";
+import cottage8Upstairs from "../assets/cottage-8-upstairs.webp";
 
 export const cottagesData = [
   {
@@ -380,6 +390,58 @@ export const cottagesData = [
     cottagePrice: {
       perDay: 285,
       perWeek: 1295,
+      extraPersonDay: 50,
+      extraPersonWeek: 210,
+    },
+    extraFunPrice: {
+      BoatNMotorPerHour: 50,
+      BoatNMotorPerDay: 100,
+      BoatNMotorPerWeek: 250,
+      canoePerHour: 25,
+      canoePerDay: 50,
+      canoePerWeek: 100,
+    },
+    features: [
+      "Fully equipped kitchen",
+      "Private deck with BBQ",
+      "WiFi",
+      "Fireplace",
+      "Lake access",
+      "Parking",
+    ],
+    otherDetails:
+      "Check-in: 3 PM | Check-out: 11 AM | Free parking available on site.",
+  },
+  {
+    id: "cottage-8",
+    title: "Cottage 8",
+    description:
+      "A 5 bedroom cottage, 2 piece bathroom, separate dining area and a fireplace in the living room.",
+    specialNote: "Pets allowed, perfect for families.",
+    href: "/cottages/cottage-8",
+    imageSrc: cottage8Exterior,
+    imageAlt: "Lakeview Cottage exterior with lake view.",
+    images: [
+      cottage8Exterior,
+      cottage8Bedroom1,
+      cottage8Bedroom2,
+      cottage8Bedroom3,
+      cottage8Bedroom4,
+      cottage8Mainroom1,
+      cottage8Mainroom2,
+      cottage8Kitchen1,
+      cottage8Kitchen2,
+      cottage8Upstairs,
+    ],
+    details: {
+      bedrooms: 5,
+      bathrooms: 2,
+      beds: "-",
+      guests: "-",
+    },
+    cottagePrice: {
+      perDay: 425,
+      perWeek: 2100,
       extraPersonDay: 50,
       extraPersonWeek: 210,
     },

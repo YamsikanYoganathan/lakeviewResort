@@ -59,6 +59,12 @@ const solutions = [
     href: "/cottages/cottage-7",
     icon: ArrowDownRightIcon,
   },
+  {
+    name: "Cottage 8",
+    description: "5 Bedroom cottage",
+    href: "/cottages/cottage-8",
+    icon: ArrowDownRightIcon,
+  },
 ];
 
 const navigation = [{ name: "About", href: "/about" }];
@@ -86,7 +92,8 @@ export default function Navbar() {
       : "bg-white text-black shadow"
   );
 
-  const logoColor = isHomePage && !hasScrolled ? "text-green-400" : "text-green-700";
+  const logoColor =
+    isHomePage && !hasScrolled ? "text-green-400" : "text-green-700";
 
   return (
     <Disclosure as="nav" className={navClass}>
