@@ -30,7 +30,7 @@ export default function CottageList() {
               />
 
               {/* Bottom 40% gradient overlay */}
-              <div className="absolute bottom-0 left-0 w-full h-[40%] bg-gradient-to-t from-green-950 via-green-900/70 to-transparent px-5 py-4 flex flex-col justify-end">
+              <div className="absolute bottom-0 left-0 w-full h-[40%] bg-gradient-to-t from-black/80 via-black/60 to-transparent px-5 py-4 flex flex-col justify-end ">
                 <div className="flex justify-between items-end">
                   <div>
                     <h3 className="text-white text-xl font-semibold mb-1">

@@ -1,118 +1,68 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import cottageHero from "../assets/hero-img.webp";
 import EnquiryButton from "./EnquiryButton";
 import { Link } from "react-router-dom";
-import cottage1 from "../assets/cottage-1-exterior.webp";
-import cottage2 from "../assets/cottage-2-exterior.webp";
-import cottage3 from "../assets/cottage-3-exterior.webp";
-import cottage4 from "../assets/cottage-4-exterior.webp";
-import cottage5 from "../assets/cottage-5-exterior.webp";
-import cottage6 from "../assets/cottage-6-exterior.webp";
-import cottage7 from "../assets/cottage-7-exterior.webp";
-
-const cottages = [
-  {
-    title: "Cottage 1",
-    description: "2 Bedroom | Up to 4 People | 3 Piece Bathroom",
-    image: cottage1,
-    link: "/cottages/lakeview",
-  },
-  {
-    title: "Cottage 2",
-    description: "3 Bedroom | Up to 6 People | 4 Piece Bathroom",
-    image: cottage2,
-    link: "/cottages/forest",
-  },
-  {
-    title: "Cottage 3",
-    description: "3 Bedroom | Up to 6 People | 3 Piece Bathroom ",
-    image: cottage3,
-    link: "/cottages/family",
-  },
-  {
-    title: "Cottage 4",
-    description: "3 Bedroom | Up to 6 People | 3 Piece Bathroom",
-    image: cottage4,
-    link: "/cottages/luxury",
-  },
-  {
-    title: "Cottage 5",
-    description: "2 Bedroom | Up to 4 People | 3 Piece Bathroom",
-    image: cottage5,
-    link: "/cottages/romantic",
-  },
-  {
-    title: "Cottage 6",
-    description: "1 Bedroom cottage | For 2 People | 3 Piece Bathroom",
-    image: cottage6,
-    link: "/cottages/adventure",
-  },
-  {
-    title: "Cottage 7",
-    description: "4 Bedroom | up to 8 people | 3 Piece Bathroom",
-    image: cottage7,
-    link: "/cottages/hillside",
-  },
-];
 
 export default function Hero() {
-  const [current, setCurrent] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % cottages.length);
-    }, 8000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const goToSlide = (index) => setCurrent(index);
-
   return (
-    <div className="relative w-full h-screen overflow-hidden">
-      {cottages.map((cottage, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 transition-all duration-1000 ease-in-out transform ${
-            index === current
-              ? "opacity-100 scale-100 z-20"
-              : "opacity-0 scale-105 z-0"
-          }`}
-        >
-          <img
-            src={cottage.image}
-            alt={cottage.title}
-            className="w-full h-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-green-950/60 to-black/80 backdrop-blur-xs flex flex-col justify-center items-center text-center px-4">
-            <h1 className="text-7xl sm:text-9xl  xl:text-[12rem] font-extrabold pb-5 tracking-tight bg-gradient-to-br from-lime-300 via-green-400 to-emerald-600 bg-clip-text text-transparent drop-shadow-lg mb-4 animate-fadeIn">
-              {cottage.title}
-            </h1>
-            <p className="text-white text-base sm:text-xl lg:text-2xl max-w-2xl mb-10 leading-relaxed tracking-wide drop-shadow-md animate-fadeIn delay-200">
-              {cottage.description}
-            </p>
-            <div className="flex flex-wrap justify-center items-center gap-4 animate-fadeIn delay-300">
-              <EnquiryButton className="px-6 py-3 sm:px-8 sm:py-3 text-sm sm:text-lg font-medium" />
-              <Link
-                to={'/cottages'}
-                className="px-6 py-2.5 sm:px-8 sm:py-2.5 text-sm sm:text-lg font-medium border-2 border-white text-white hover:bg-white hover:text-black transition rounded-lg"
-              >
-                More Details
-              </Link>
-            </div>
+    <div className="relative w-full h-screen">
+      {/* Background Image */}
+      <img
+        src={cottageHero}
+        alt="Cottage"
+        className="absolute inset-0 w-full h-full object-cover object-center"
+      />
+
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/40" />
+
+      {/* Content Area (Heading + Buttons) */}
+      <div className="relative mx-auto max-w-7xl z-10 flex items-center justify-start h-full px-4 sm:px-6 lg:px-8">
+        <div className="text-left max-w-4xl">
+          {/* Heading */}
+          <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold text-white leading-tight drop-shadow-lg uppercase">
+            Discover Your Perfect<br /> Lakeview Cottage <br /> Retreat
+          </h1>
+          <p className="text-lg sm:text-2xl xl:text-2xl mt-2 font-semibold text-white/70 leading-tight lg:max-w-2xl sm:max-w-lg max-w-md">
+            Discover an exclusive collection of private cottages where nature's
+            beauty meets luxurious comfort.
+          </p>
+
+          {/* Buttons */}
+          <div className="flex flex-wrap justify-start gap-3 mt-8 text-sm sm:text-base">
+            <EnquiryButton className="bg-white/20 backdrop-blur-md text-white font-medium rounded-full " />
+            <Link
+              to={"/cottages"}
+              className="sm:px-8 sm:py-2.5 px-8 py-2.5 text-sm sm:text-md font-medium hover:bg-green-900 transition rounded-lg bg-white/20 backdrop-blur-md text-white"
+            >
+              More Details
+            </Link>
           </div>
         </div>
-      ))}
+      </div>
 
-      {/* Slide indicators */}
-      <div className="absolute bottom-6 sm:bottom-10 w-full flex justify-center space-x-2 z-30">
-        {cottages.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`h-2.5 w-2.5 rounded-full transition ${
-              current === index ? "bg-white" : "bg-white/30"
-            }`}
-          />
-        ))}
+      {/* Bottom Info (Pinned to bottom) */}
+      <div className="mx-auto max-w-7xl absolute bottom-6 sm:bottom-10 left-0 right-0 z-10 px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-wrap justify-start gap-8 text-white/90 text-sm sm:text-base font-medium">
+          <div>
+            <p className="uppercase tracking-wide text-xs sm:text-sm opacity-70">
+              Property Type
+            </p>
+            <p className="font-semibold">Cottage</p>
+          </div>
+          <div>
+            <p className="uppercase tracking-wide text-xs sm:text-sm opacity-70">
+              No. of cottages
+            </p>
+            <p className="font-semibold">08</p>
+          </div>
+          <div>
+            <p className="uppercase tracking-wide text-xs sm:text-sm opacity-70">
+              Availability
+            </p>
+            <p className="font-semibold">For Rent</p>
+          </div>
+        </div>
       </div>
     </div>
   );
