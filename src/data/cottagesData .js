@@ -61,6 +61,7 @@ import cottage8Kitchen2 from "../assets/cottage-8-kitchen-2.webp";
 import cottage8Mainroom1 from "../assets/cottage-8-mainroom-1.webp";
 import cottage8Mainroom2 from "../assets/cottage-8-mainroom-2.webp";
 import cottage8Exterior from "../assets/cottage-8-exterior.webp";
+import cottage8Exterior1 from "../assets/cottage-8-exterior-1.webp";
 import cottage8Upstairs from "../assets/cottage-8-upstairs.webp";
 
 export const cottagesData = [
@@ -419,9 +420,10 @@ export const cottagesData = [
       "A 5 bedroom cottage, 2 piece bathroom, separate dining area and a fireplace in the living room.",
     specialNote: "Pets allowed, perfect for families.",
     href: "/cottages/cottage-8",
-    imageSrc: cottage8Exterior,
+    imageSrc: cottage8Exterior1,
     imageAlt: "Lakeview Cottage exterior with lake view.",
     images: [
+      cottage8Exterior1,
       cottage8Exterior,
       cottage8Bedroom1,
       cottage8Bedroom2,
@@ -436,8 +438,8 @@ export const cottagesData = [
     details: {
       bedrooms: 5,
       bathrooms: 2,
-      beds: "-",
-      guests: "-",
+      beds: 5,
+      guests: 10,
     },
     cottagePrice: {
       perDay: 425,
