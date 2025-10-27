@@ -95,6 +95,19 @@ export default function Navbar() {
   const logoColor =
     isHomePage && !hasScrolled ? "text-green-400" : "text-green-700";
 
+  const desktopNavLinkClass = classNames(
+    "rounded-md px-3 py-2 text-sm font-medium transition",
+    isHomePage && !hasScrolled ? "text-white" : "text-gray-900"
+  );
+
+  const mobileMenuIconColor =
+    isHomePage && !hasScrolled ? "text-white" : "text-black";
+
+  const mobilePanelClass = classNames(
+    "sm:hidden transition-all duration-300 backdrop-blur-xl shadow-lg",
+    "bg-green-950/45 backdrop-blur-xl shadow-lg"
+  );
+
   return (
     <Disclosure as="nav" className={navClass}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -104,9 +117,9 @@ export default function Navbar() {
             <DisclosureButton className="inline-flex items-center justify-center rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500">
               {({ open }) =>
                 open ? (
-                  <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                  <XMarkIcon className={`block h-6 w-6 ${mobileMenuIconColor}`} aria-hidden="true" />
                 ) : (
-                  <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                  <Bars3Icon className={`block h-6 w-6 ${mobileMenuIconColor}`} aria-hidden="true" />
                 )
               }
             </DisclosureButton>
@@ -124,7 +137,10 @@ export default function Navbar() {
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:items-center space-x-4">
               <Popover className="relative">
-                <PopoverButton className="inline-flex items-center gap-x-1 text-sm font-semibold transition outline-0">
+                <PopoverButton className={classNames(
+                  "inline-flex items-center gap-x-1 text-sm font-semibold transition outline-0",
+                  isHomePage && !hasScrolled ? "text-white" : "text-gray-900" 
+                )}>
                   <span>Accommodations</span>
                   <ChevronDownIcon className="h-5 w-5" />
                 </PopoverButton>
@@ -158,7 +174,7 @@ export default function Navbar() {
                     location.pathname === item.href
                       ? "font-semibold"
                       : "hover:opacity-80",
-                    "rounded-md px-3 py-2 text-sm font-medium"
+                    desktopNavLinkClass 
                   )}
                 >
                   {item.name}
@@ -170,44 +186,42 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile nav panel */}
-      <DisclosurePanel
-        className={classNames(
-          "sm:hidden transition-all duration-300 bg-white text-black shadow"
-        )}
-      >
-        <div className="space-y-6 px-2 pt-2 pb-3 flex flex-col items-center h-screen justify-center">
+      <DisclosurePanel className={mobilePanelClass}>
+        <div className="space-y-6 px-2 pb-5 flex flex-col items-center h-[calc(100vh-4rem)] justify-center">
           <Popover className="w-full">
-            <PopoverButton className="flex justify-center items-center gap-2 w-full px-3 py-2 rounded-md text-2xl font-medium hover:opacity-90">
+            <PopoverButton className="flex justify-center items-center gap-2 w-full px-3 py-2 rounded-md text-2xl font-medium text-white hover:opacity-90">
               <span>Accommodations</span>
               <ChevronDownIcon className="h-5 w-5" />
             </PopoverButton>
-            <PopoverPanel className="w-full mt-1 rounded-lg bg-white text-black">
+            <PopoverPanel className="w-full mt-1">
               <div className="p-2 flex flex-col items-center gap-2">
                 {solutions.map((item) => (
                   <Link
                     key={item.name}
                     to={item.href}
-                    className="flex items-center justify-center gap-2 p-2 rounded hover:bg-gray-100 transition min-w-48"
+                    className="flex items-center justify-center gap-2 p-3 rounded hover:bg-white/20 transition min-w-58 bg-white/10 backdrop-blur-lg w-full max-w-xs"
                   >
-                    <item.icon className="h-6 w-6 text-gray-600" />
-                    <span className="text-lg">{item.name}</span>
+                    <item.icon className="h-6 w-6 text-white" />
+                    <span className="text-lg font-medium text-white">
+                      {item.name}
+                    </span>
                   </Link>
                 ))}
               </div>
             </PopoverPanel>
           </Popover>
+          {/* Mobile Navigation Links */}
           {navigation.map((item) => (
             <DisclosureButton
               key={item.name}
               as={Link}
               to={item.href}
-              className="block rounded-md px-3 py-2 transition text-2xl font-medium"
+              className="block rounded-md px-3 py-2 transition text-2xl font-medium text-white hover:opacity-90"
             >
               {item.name}
             </DisclosureButton>
           ))}
-          <EnquiryButton className="mt-4" />
+          <EnquiryButton className="mt-6" />
         </div>
       </DisclosurePanel>
     </Disclosure>
