@@ -1,27 +1,70 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { cottagesData } from "../data/cottagesData ";
 import { FaUsers, FaBed } from "react-icons/fa";
 import { ArrowDownRightIcon } from "@heroicons/react/24/outline";
 
 export default function CottageList() {
-  return (
-    <div className="bg-white mt-8">
-      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-semibold tracking-tight text-gray-900 text-center sm:text-5xl">
-          Our Cottages
-        </h2>
-        <p className="mt-4 text-lg text-gray-600 text-center max-w-xl mx-auto">
-          Discover our fully equipped, modern self-catered cottages designed for
-          comfort and relaxation.
-        </p>
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        root: null, 
+        rootMargin: '0px',
+        threshold: 0.1, 
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  const baseTransition = "transition-all duration-1000 ease-out transform";
+
+  return (
+    <div className="bg-white mt-8" ref={sectionRef}>
+      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        
+        <div
+          className={`${baseTransition} ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          } duration-700`}
+        >
+          <h2 className="text-4xl font-semibold tracking-tight text-gray-900 text-center sm:text-5xl">
+            Our Cottages
+          </h2>
+          <p className="mt-4 text-lg text-gray-600 text-center max-w-xl mx-auto">
+            Discover our fully equipped, modern self-catered cottages designed for
+            comfort and relaxation.
+          </p>
+        </div>
+
+        {/* Cottage Grid - Staggered Slide-up and Fade-in */}
         <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {cottagesData.map((cottage) => (
+          {cottagesData.map((cottage, index) => (
             <Link
               key={cottage.id}
               to={cottage.href}
-              className="relative group overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-transform duration-300 hover:scale-105"
+              className={`relative group overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-transform duration-300 hover:scale-[1.03] ${baseTransition} ${
+                isVisible
+                  ? `opacity-100 translate-y-0 delay-[${150 + index * 100}ms]`
+                  : "opacity-0 translate-y-12"
+              }`}
             >
               <img
                 src={cottage.imageSrc}

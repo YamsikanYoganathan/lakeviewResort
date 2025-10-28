@@ -5,7 +5,41 @@ import {
 } from "@heroicons/react/24/outline";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+
+// Custom hook to handle the Intersection Observer logic
+const useRevealOnScroll = (threshold = 0.1) => {
+  const ref = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: threshold,
+      }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, [threshold]);
+
+  return [ref, isVisible];
+};
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -14,6 +48,10 @@ export default function Contact() {
     phone: "",
     message: "",
   });
+
+  // Refs for the main content blocks
+  const [headerRef, isHeaderVisible] = useRevealOnScroll(0.1);
+  const [detailsRef, isDetailsVisible] = useRevealOnScroll(0.1);
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -31,19 +69,35 @@ export default function Contact() {
     window.location.href = `mailto:info@lakeviewcottages.com?subject=${subject}&body=${body}`;
   };
 
+  const baseTransition = "transition-all duration-1000 ease-out transform";
+
   return (
     <>
       <Navbar />
       <div className="bg-white py-12 px-4 sm:px-6 lg:px-8 mt-16">
         <div className="mx-auto max-w-7xl">
-          <h2 className="text-4xl font-semibold tracking-tight text-gray-950 sm:text-5xl text-center">
-            Enquire About Lakeview Cottages
-          </h2>
-          <p className="mt-4 text-lg text-gray-600 text-center max-w-xl mx-auto">
-            Contact us for pricing, availability, or to book your next peaceful escape.
-          </p>
+          {/* Header Section - Slide-up and Fade-in */}
+          <div
+            ref={headerRef}
+            className={`${baseTransition} duration-700 ${
+              isHeaderVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+          >
+            <h2 className="text-4xl font-semibold tracking-tight text-gray-950 sm:text-5xl text-center">
+              Enquire About Lakeview Cottages
+            </h2>
+            <p className="mt-4 text-lg text-gray-600 text-center max-w-xl mx-auto">
+              Contact us for pricing, availability, or to book your next peaceful escape.
+            </p>
+          </div>
 
-          <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          {/* Contact Details and Form Grid */}
+          <div 
+            ref={detailsRef}
+            className={`mt-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start ${baseTransition} duration-1000 delay-300 ${
+              isDetailsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+          >
             {/* Contact Details */}
             <div className="space-y-8">
               <div className="flex items-start gap-4">

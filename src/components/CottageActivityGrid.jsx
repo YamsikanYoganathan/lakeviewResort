@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import lakeview from "../assets/lakeview.webp";
 import boating from "../assets/boating.webp";
 import hiking from "../assets/hiking.webp";
@@ -44,16 +44,55 @@ const activities = [
 ];
 
 export default function CottageActivityGrid() {
-  return (
-    <div className="bg-gray-50 py-24 sm:py-32">
-      <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-        <h2 className="text-center text-base font-semibold text-green-600">
-          Activities at Lakeview Resort
-        </h2>
-        <p className="mx-auto mt-2 max-w-2xl text-center text-4xl font-semibold tracking-tight text-gray-950 sm:text-5xl">
-          Discover your next adventure
-        </p>
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1,
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  const baseTransition = "transition-all duration-700 ease-out transform";
+
+  return (
+    <div className="bg-gray-50 py-24 sm:py-32" ref={sectionRef}>
+      <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+        {/* Header and Subtitle - Slide-up and Fade-in */}
+        <div
+          className={`${baseTransition} ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          } duration-700`}
+        >
+          <h2 className="text-center text-base font-semibold text-green-600">
+            Activities at Lakeview Resort
+          </h2>
+          <p className="mx-auto mt-2 max-w-2xl text-center text-4xl font-semibold tracking-tight text-gray-950 sm:text-5xl">
+            Discover your next adventure
+          </p>
+        </div>
+
+        {/* Activity Grid - Staggered Slide-up and Fade-in */}
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[320px] justify-center">
           {activities.map((activity, index) => (
             <div
@@ -84,6 +123,13 @@ export default function CottageActivityGrid() {
                   index === 4
                     ? "sm:col-span-2 md:col-span-1 md:row-span-1 lg:col-span-1"
                     : ""
+                }
+                
+                ${baseTransition} 
+                ${
+                  isVisible
+                    ? `opacity-100 translate-y-0 delay-[${200 + index * 100}ms]`
+                    : "opacity-0 translate-y-12"
                 }
               `}
             >

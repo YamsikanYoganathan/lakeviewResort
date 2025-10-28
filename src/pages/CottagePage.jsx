@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -15,6 +15,40 @@ import { IoBed } from "react-icons/io5";
 import { MdFireplace } from "react-icons/md";
 import { TbToolsKitchen2 } from "react-icons/tb";
 import { cottagesData } from "../data/cottagesData ";
+
+// Custom hook to handle the Intersection Observer logic
+const useRevealOnScroll = (threshold = 0.1) => {
+  const ref = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: threshold,
+      }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, [threshold]);
+
+  return [ref, isVisible];
+};
 
 function DetailCard({ icon, label, value }) {
   return (
@@ -43,10 +77,18 @@ function getFeatureIcon(feature) {
 export default function CottagePage() {
   const { id } = useParams();
   const cottage = cottagesData.find((c) => c.id === id);
-  const [mainImage, setMainImage] = useState(cottage?.images[0]);
   const [showGallery, setShowGallery] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [priceTab, setPriceTab] = useState("day");
+  
+  // Refs for section reveals
+  const [detailsRef, isDetailsVisible] = useRevealOnScroll(0.1);
+  const [statsRef, isStatsVisible] = useRevealOnScroll(0.1);
+  const [featuresRef, isFeaturesVisible] = useRevealOnScroll(0.1);
+  const [activitiesRef, isActivitiesVisible] = useRevealOnScroll(0.1);
+  const [otherDetailsRef, isOtherDetailsVisible] = useRevealOnScroll(0.1);
+
+  const baseTransition = "transition-all duration-700 ease-out transform";
 
   if (!cottage) {
     return (
@@ -73,6 +115,7 @@ export default function CottagePage() {
           Back to cottages
         </Link>
 
+        {/* Image Grid Section */}
         {!showGallery ? (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 mb-8 relative">
             <div className="aspect-[4/3] overflow-hidden rounded-lg">
@@ -98,19 +141,20 @@ export default function CottagePage() {
             </div>
             <button
               onClick={() => setShowGallery(true)}
-              className="absolute bottom-3 right-4 bg-white text-gray-800 text-sm px-4 py-1 rounded shadow hover:bg-gray-200"
+              className="absolute bottom-3 right-4 bg-white text-gray-800 text-sm px-4 py-1 rounded shadow hover:bg-gray-200 transition"
             >
               Show all photos
             </button>
           </div>
         ) : (
-          <div className="fixed top-0 left-0 right-0 bg-white z-50 overflow-y-scroll h-full py-8">
+          /* Full Gallery Modal with Fade Transition */
+          <div className="fixed inset-0 bg-white z-50 overflow-y-scroll h-full py-8 transition-opacity duration-300 opacity-100">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between items-center fixed top-0 left-0 right-0 bg-white py-4 px-4 z-50 mx-auto max-w-7xl">
                 <h2 className="text-2xl font-semibold">Cottages Gallery</h2>
                 <button
                   onClick={() => setShowGallery(false)}
-                  className="text-gray-600 hover:text-gray-900"
+                  className="text-gray-600 hover:text-gray-900 transition"
                 >
                   <XMarkIcon className="w-6 h-6" />
                 </button>
@@ -134,23 +178,30 @@ export default function CottagePage() {
           </div>
         )}
 
+        {/* Selected Image Modal with Fade Transition */}
         {selectedImage && (
-          <div className="fixed inset-0 bg-tranperency backdrop-blur-xl backdrop-brightness-50 z-50 flex items-center justify-center">
+          <div className={`fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center transition-opacity duration-300 ${selectedImage ? 'opacity-100' : 'opacity-0'}`}>
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute top-4 right-4 text-white hover:text-gray-300"
+              className="absolute top-4 right-4 text-white hover:text-gray-300 transition"
             >
               <XMarkIcon className="w-8 h-8" />
             </button>
             <img
               src={selectedImage}
               alt="Full View"
-              className="max-w-full max-h-[90vh] rounded-lg shadow-lg"
+              className="max-w-full max-h-[90vh] rounded-lg shadow-lg transform scale-100 transition-transform duration-300"
             />
           </div>
         )}
 
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-10 gap-6">
+        {/* Description and Price Section - Slide-up and Fade-in (1) */}
+        <div 
+          ref={detailsRef}
+          className={`flex flex-col lg:flex-row lg:items-start lg:justify-between mb-10 gap-6 ${baseTransition} duration-700 ${
+            isDetailsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
           <div className="lg:w-3/4">
             <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
               {cottage.title}
@@ -165,6 +216,7 @@ export default function CottagePage() {
             )}
           </div>
 
+          {/* Price Box */}
           <div className="lg:w-1/4 rounded-lg overflow-hidden outline-2 outline-green-200">
             <div className="bg-green-50 p-6 rounded-lg ">
               <div className="flex space-x-4 mb-4">
@@ -211,7 +263,13 @@ export default function CottagePage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        {/* Details Grid Section - Slide-up and Fade-in (2) */}
+        <div 
+          ref={statsRef}
+          className={`grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8 ${baseTransition} duration-700 delay-100 ${
+            isStatsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
           <DetailCard
             icon={<FaBed size={24} className="text-green-600 mx-auto" />}
             label="Bedrooms"
@@ -236,7 +294,13 @@ export default function CottagePage() {
           />
         </div>
 
-        <div className="mb-10">
+        {/* Features Section - Slide-up and Fade-in (3) */}
+        <div 
+          ref={featuresRef}
+          className={`mb-10 ${baseTransition} duration-700 delay-200 ${
+            isFeaturesVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
           <h2 className="text-2xl font-semibold mb-4">Features</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
             {cottage.features.map((feature, index) => (
@@ -251,7 +315,13 @@ export default function CottagePage() {
           </div>
         </div>
 
-        <div className="mt-8 mb-12">
+        {/* Activities Section - Slide-up and Fade-in (4) */}
+        <div 
+          ref={activitiesRef}
+          className={`mt-8 mb-12 ${baseTransition} duration-700 delay-300 ${
+            isActivitiesVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
           <h3 className="text-2xl font-semibold mb-4">Extra Activities</h3>
           <div className="grid sm:grid-cols-2 gap-6 text-sm text-gray-700">
             <div className="bg-gray-50 p-6 rounded-lg outline-2 outline-gray-100">
@@ -295,8 +365,14 @@ export default function CottagePage() {
           </div>
         </div>
 
+        {/* Other Details Section - Slide-up and Fade-in (5) */}
         {cottage.otherDetails && (
-          <div className="mb-6">
+          <div 
+            ref={otherDetailsRef}
+            className={`mb-6 ${baseTransition} duration-700 delay-400 ${
+              isOtherDetailsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+          >
             <h2 className="text-2xl font-semibold mb-2">Other Details</h2>
             <p className="text-gray-700">{cottage.otherDetails}</p>
           </div>
