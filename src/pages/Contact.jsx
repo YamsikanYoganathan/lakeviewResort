@@ -7,7 +7,6 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import React, { useState, useEffect, useRef } from "react";
 
-// Custom hook to handle the Intersection Observer logic
 const useRevealOnScroll = (threshold = 0.1) => {
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -49,7 +48,6 @@ export default function Contact() {
     message: "",
   });
 
-  // Refs for the main content blocks
   const [headerRef, isHeaderVisible] = useRevealOnScroll(0.1);
   const [detailsRef, isDetailsVisible] = useRevealOnScroll(0.1);
 

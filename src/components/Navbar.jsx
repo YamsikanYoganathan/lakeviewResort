@@ -38,7 +38,7 @@ const solutions = [
   {
     name: "Cottage 4",
     description: "3 Bedroom cottage",
-    href: "/cottages/cottages-4",
+    href: "/cottages/cottage-4",
     icon: ArrowDownRightIcon,
   },
   {

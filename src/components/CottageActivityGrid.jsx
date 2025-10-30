@@ -73,7 +73,7 @@ export default function CottageActivityGrid() {
     };
   }, []);
 
-  const baseTransition = "transition-all duration-700 ease-out transform";
+  const baseTransition = "transition-all duration-800 ease-out transform";
 
   return (
     <div className="bg-gray-50 py-24 sm:py-32" ref={sectionRef}>
@@ -82,7 +82,7 @@ export default function CottageActivityGrid() {
         <div
           className={`${baseTransition} ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          } duration-700`}
+          } duration-800`}
         >
           <h2 className="text-center text-base font-semibold text-green-600">
             Activities at Lakeview Resort
@@ -98,7 +98,7 @@ export default function CottageActivityGrid() {
             <div
               key={index}
               className={`
-                relative flex flex-col overflow-hidden rounded-2xl shadow-lg transition-shadow duration-300 hover:shadow-xl
+                relative flex flex-col overflow-hidden rounded-2xl shadow-lg transition-shadow duration-400 hover:shadow-xl
                 ${
                   index === 0
                     ? "sm:row-span-2 md:row-span-1 md:col-span-1 lg:row-span-2"
@@ -128,7 +128,7 @@ export default function CottageActivityGrid() {
                 ${baseTransition} 
                 ${
                   isVisible
-                    ? `opacity-100 translate-y-0 delay-[${200 + index * 100}ms]`
+                    ? `opacity-100 translate-y-0 delay-[${400 + index * 200}ms]`
                     : "opacity-0 translate-y-12"
                 }
               `}
@@ -136,7 +136,7 @@ export default function CottageActivityGrid() {
               <img
                 src={activity.image}
                 alt={activity.alt}
-                className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                className="w-full h-full object-cover object-center transition-transform duration-400 group-hover:scale-105"
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/70 to-transparent p-6 flex flex-col justify-end">
                 <h3 className="text-lg font-semibold text-white">

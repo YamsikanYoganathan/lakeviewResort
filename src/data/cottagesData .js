@@ -29,6 +29,7 @@ import cottage4Kitchen1 from "../assets/cottage-4-kitchen-1.webp";
 import cottage4Kitchen2 from "../assets/cottage-4-kitchen-2.webp";
 import cottage4Mainroom1 from "../assets/cottage-4-mainroom-1.webp";
 import cottage5Exterior from "../assets/cottage-5-exterior.webp";
+import cottage5Exterior1 from "../assets/cottage-5-exterior-1.webp";
 import cottage5Bedrooom1 from "../assets/cottage-5-bedroom-1.webp";
 import cottage5Bedrooom2 from "../assets/cottage-5-bedroom-2.webp";
 import cottage5Mainroom1 from "../assets/cottage-5-mainroom-1.webp";
@@ -99,8 +100,8 @@ export const cottagesData = [
     },
     extraFunPrice: {
       BoatNMotorPerHour: 50,
-      BoatNMotorPerDay: 100,
-      BoatNMotorPerWeek: 250,
+      BoatNMotorPerDay: 150,
+      BoatNMotorPerWeek: 500,
       canoePerHour: 25,
       canoePerDay: 50,
       canoePerWeek: 100,
@@ -151,8 +152,8 @@ export const cottagesData = [
     },
     extraFunPrice: {
       BoatNMotorPerHour: 50,
-      BoatNMotorPerDay: 100,
-      BoatNMotorPerWeek: 250,
+      BoatNMotorPerDay: 150,
+      BoatNMotorPerWeek: 500,
       canoePerHour: 25,
       canoePerDay: 50,
       canoePerWeek: 100,
@@ -198,8 +199,8 @@ export const cottagesData = [
     },
     extraFunPrice: {
       BoatNMotorPerHour: 50,
-      BoatNMotorPerDay: 100,
-      BoatNMotorPerWeek: 250,
+      BoatNMotorPerDay: 150,
+      BoatNMotorPerWeek: 500,
       canoePerHour: 25,
       canoePerDay: 50,
       canoePerWeek: 100,
@@ -246,8 +247,8 @@ export const cottagesData = [
     },
     extraFunPrice: {
       BoatNMotorPerHour: 50,
-      BoatNMotorPerDay: 100,
-      BoatNMotorPerWeek: 250,
+      BoatNMotorPerDay: 150,
+      BoatNMotorPerWeek: 500,
       canoePerHour: 25,
       canoePerDay: 50,
       canoePerWeek: 100,
@@ -274,6 +275,7 @@ export const cottagesData = [
     imageAlt: "Romantic Cabin for couples.",
     images: [
       cottage5Exterior,
+      cottage5Exterior1,
       cottage5Bedrooom1,
       cottage5Bedrooom2,
       cottage5Mainroom1,
@@ -295,8 +297,8 @@ export const cottagesData = [
     },
     extraFunPrice: {
       BoatNMotorPerHour: 50,
-      BoatNMotorPerDay: 100,
-      BoatNMotorPerWeek: 250,
+      BoatNMotorPerDay: 150,
+      BoatNMotorPerWeek: 500,
       canoePerHour: 25,
       canoePerDay: 50,
       canoePerWeek: 100,
@@ -344,8 +346,8 @@ export const cottagesData = [
     },
     extraFunPrice: {
       BoatNMotorPerHour: 50,
-      BoatNMotorPerDay: 100,
-      BoatNMotorPerWeek: 250,
+      BoatNMotorPerDay: 150,
+      BoatNMotorPerWeek: 500,
       canoePerHour: 25,
       canoePerDay: 50,
       canoePerWeek: 100,
@@ -396,8 +398,8 @@ export const cottagesData = [
     },
     extraFunPrice: {
       BoatNMotorPerHour: 50,
-      BoatNMotorPerDay: 100,
-      BoatNMotorPerWeek: 250,
+      BoatNMotorPerDay: 150,
+      BoatNMotorPerWeek: 500,
       canoePerHour: 25,
       canoePerDay: 50,
       canoePerWeek: 100,
@@ -449,8 +451,8 @@ export const cottagesData = [
     },
     extraFunPrice: {
       BoatNMotorPerHour: 50,
-      BoatNMotorPerDay: 100,
-      BoatNMotorPerWeek: 250,
+      BoatNMotorPerDay: 150,
+      BoatNMotorPerWeek: 500,
       canoePerHour: 25,
       canoePerDay: 50,
       canoePerWeek: 100,

@@ -34,7 +34,7 @@ export default function CottageList() {
     };
   }, []);
 
-  const baseTransition = "transition-all duration-1000 ease-out transform";
+  const baseTransition = "transition-all duration-1200 ease-out transform";
 
   return (
     <div className="bg-white mt-8" ref={sectionRef}>
@@ -43,7 +43,7 @@ export default function CottageList() {
         <div
           className={`${baseTransition} ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          } duration-700`}
+          } duration-800`}
         >
           <h2 className="text-4xl font-semibold tracking-tight text-gray-900 text-center sm:text-5xl">
             Our Cottages
@@ -60,16 +60,16 @@ export default function CottageList() {
             <Link
               key={cottage.id}
               to={cottage.href}
-              className={`relative group overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-transform duration-300 hover:scale-[1.03] ${baseTransition} ${
+              className={`relative group overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-transform duration-400 hover:scale-[1.03] ${baseTransition} ${
                 isVisible
-                  ? `opacity-100 translate-y-0 delay-[${150 + index * 100}ms]`
+                  ? `opacity-100 translate-y-0 delay-[${400 + index * 240}ms]`
                   : "opacity-0 translate-y-12"
               }`}
             >
               <img
                 src={cottage.imageSrc}
                 alt={cottage.imageAlt}
-                className="w-full h-68 object-cover object-center transform group-hover:scale-105 transition-transform duration-300 saturate-90"
+                className="w-full h-68 object-cover object-center transform group-hover:scale-105 transition-transform duration-400 saturate-120"
               />
 
               {/* Bottom 40% gradient overlay */}
@@ -92,7 +92,7 @@ export default function CottageList() {
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
-                    <div className="inline-flex items-center text-sm text-white font-medium hover:text-green-400 transition-colors duration-200">
+                    <div className="inline-flex items-center text-sm text-white font-medium hover:text-green-400 transition-colors duration-400">
                       Full Info
                       <ArrowDownRightIcon className="ml-2 w-4 h-4" />
                     </div>

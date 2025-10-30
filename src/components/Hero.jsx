@@ -14,28 +14,22 @@ export default function Hero() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Base transition class for all animated elements
   const baseTransition = "transition-all duration-1000 ease-out transform";
 
   return (
     <div className="relative w-full h-screen">
-      {/* Background Image - Slow fade-in effect */}
       <img
         src={cottageHero}
         alt="Cottage"
-        // Applying a slow opacity transition for a cinematic fade-in
         className={`absolute inset-0 w-full h-full object-cover object-center ${
-          contentVisible ? "opacity-100 transition-opacity duration-[1500ms]" : "opacity-0 transition-opacity duration-[1500ms]"
+          contentVisible ? "opacity-100 transition-opacity duration-[1800ms]" : "opacity-0 transition-opacity duration-[1800ms]"
         }`}
       />
 
-      {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/40" />
 
-      {/* Content Area (Heading + Buttons) */}
       <div className="relative mx-auto max-w-7xl z-10 flex items-center justify-start h-full px-4 sm:px-6 lg:px-8">
         <div className="text-left max-w-4xl">
-          {/* Heading - Fade-in and Slide-up (Stagger 1) */}
           <h1
             className={`${baseTransition} ${
               contentVisible
@@ -47,23 +41,21 @@ export default function Hero() {
             <br /> Lakeview Cottage <br /> Retreat
           </h1>
           
-          {/* Subtitle - Fade-in and Slide-up (Stagger 2) */}
           <p
             className={`${baseTransition} ${
               contentVisible
-                ? "opacity-100 translate-y-0 delay-[300ms]"
+                ? "opacity-100 translate-y-0 delay-[400ms]"
                 : "opacity-0 translate-y-8"
             } text-lg sm:text-2xl xl:text-2xl mt-2 font-semibold text-white/70 leading-tight lg:max-w-2xl sm:max-w-lg max-w-md`}
           >
             Discover an exclusive collection of private cottages where nature's
-            beauty meets luxurious comfort.
+            beauty meets comfort.
           </p>
 
-          {/* Buttons - Fade-in and Slide-up (Stagger 3) */}
           <div
             className={`${baseTransition} ${
               contentVisible
-                ? "opacity-100 translate-y-0 delay-[600ms]"
+                ? "opacity-100 translate-y-0 delay-[800ms]"
                 : "opacity-0 translate-y-8"
             } flex flex-wrap justify-start gap-3 mt-8 text-sm sm:text-base`}
           >
@@ -78,10 +70,9 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Bottom Info (Pinned to bottom) - Final Fade-in (Stagger 4) */}
       <div
         className={`${baseTransition} ${
-          contentVisible ? "opacity-100 delay-[900ms]" : "opacity-0"
+          contentVisible ? "opacity-100 delay-[1000ms]" : "opacity-0"
         } mx-auto max-w-7xl absolute bottom-6 sm:bottom-10 left-0 right-0 z-10 px-4 sm:px-6 lg:px-8`}
       >
         <div className="flex flex-wrap justify-start gap-8 text-white/90 text-sm sm:text-base font-medium">

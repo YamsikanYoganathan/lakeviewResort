@@ -67,14 +67,6 @@ export default function Footer() {
             >
               <FaInstagram className="h-5 w-5" />
             </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-green-700 hover:text-green-900 transition"
-            >
-              <FaTwitter className="h-5 w-5" />
-            </a>
           </div>
         </div>
 

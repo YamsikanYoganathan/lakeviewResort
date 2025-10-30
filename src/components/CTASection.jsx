@@ -32,7 +32,7 @@ export default function CTASection() {
     };
   }, []);
 
-  const baseTransition = "transition-all duration-1000 ease-out transform";
+  const baseTransition = "transition-all duration-1200 ease-out transform";
 
   return (
     <div className="bg-white py-20 sm:py-28">
@@ -40,7 +40,7 @@ export default function CTASection() {
       <div 
         className={`mx-auto max-w-2xl text-center px-4 sm:px-6 lg:px-8 ${baseTransition} ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        } duration-700`}
+        } duration-600`}
         ref={sectionRef}
       >
         <h2 className=" text-green-900 text-4xl font-semibold tracking-tight sm:text-5xl">
