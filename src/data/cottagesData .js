@@ -74,7 +74,7 @@ export const cottagesData = [
     specialNote: "Pets allowed, perfect for families.",
     href: "/cottages/cottage-1",
     imageSrc: cottage1Exterior,
-    imageAlt: "Lakeview Cottage exterior with lake view.",
+    imageAlt: "Private lakeview cottage surrounded by nature in Canada",
     images: [
       cottage1Exterior,
       cottage1Bedrooom1,
@@ -125,7 +125,7 @@ export const cottagesData = [
     specialNote: "Pets allowed, perfect for families.",
     href: "/cottages/cottage-2",
     imageSrc: cottage2Exterior,
-    imageAlt: "Forest Retreat nestled in trees.",
+    imageAlt: "Lakeview cottage rental in Canada",
     images: [
       cottage2Exterior,
       cottage2Bedrooom1,
@@ -177,7 +177,7 @@ export const cottagesData = [
     specialNote: "Pets allowed, perfect for families.",
     href: "/cottages/cottage-3",
     imageSrc: cottage3Exterior,
-    imageAlt: "Family Cottage with spacious yard.",
+    imageAlt: "Private lakeview cottage surrounded by nature in Canada",
     images: [
       cottage3Exterior,
       cottage3Bedrooom1,
@@ -224,7 +224,7 @@ export const cottagesData = [
     specialNote: "Pets allowed, perfect for families.",
     href: "/cottages/cottage-4",
     imageSrc: cottage4Exterior,
-    imageAlt: "Luxury Cottage with premium design.",
+    imageAlt: "Lakeview cottage rental in Canada",
     images: [
       cottage4Exterior,
       cottage4Bedrooom1,
@@ -272,7 +272,7 @@ export const cottagesData = [
     specialNote: "Pets allowed, perfect for families.",
     href: "/cottages/cottage-5",
     imageSrc: cottage5Exterior,
-    imageAlt: "Romantic Cabin for couples.",
+    imageAlt: "Private lakeview cottage surrounded by nature in Canada",
     images: [
       cottage5Exterior,
       cottage5Exterior1,
@@ -322,7 +322,7 @@ export const cottagesData = [
     specialNote: "Pets allowed, perfect for families.",
     href: "/cottages/cottage-6",
     imageSrc: cottage6Exterior,
-    imageAlt: "Adventure Cabin for nature lovers.",
+    imageAlt: "Lakeview cottage rental in Canada",
     images: [
       cottage6Exterior,
       cottage6Bedrooom1,
@@ -371,7 +371,7 @@ export const cottagesData = [
     specialNote: "Pets allowed, perfect for families.",
     href: "/cottages/cottage-7",
     imageSrc: cottage7Exterior,
-    imageAlt: "Hillside Cottage with panoramic views.",
+    imageAlt: "Private lakeview cottage surrounded by nature in Canada",
     images: [
       cottage7Exterior,
       cottage7Bedrooom1,
@@ -423,7 +423,7 @@ export const cottagesData = [
     specialNote: "Pets allowed, perfect for families.",
     href: "/cottages/cottage-8",
     imageSrc: cottage8Exterior1,
-    imageAlt: "Lakeview Cottage exterior with lake view.",
+    imageAlt: "Lakeview cottage rental in Canada",
     images: [
       cottage8Exterior1,
       cottage8Exterior,

@@ -20,9 +20,12 @@ export default function Hero() {
     <div className="relative w-full h-screen">
       <img
         src={cottageHero}
-        alt="Cottage"
+        loading="lazy"
+        alt="Lakeview Resort private cottage in Canada"
         className={`absolute inset-0 w-full h-full object-cover object-center ${
-          contentVisible ? "opacity-100 transition-opacity duration-[1800ms]" : "opacity-0 transition-opacity duration-[1800ms]"
+          contentVisible
+            ? "opacity-100 transition-opacity duration-[1800ms]"
+            : "opacity-0 transition-opacity duration-[1800ms]"
         }`}
       />
 
@@ -37,10 +40,9 @@ export default function Hero() {
                 : "opacity-0 translate-y-8"
             } text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold text-white leading-tight drop-shadow-lg uppercase`}
           >
-            Discover Your Perfect
-            <br /> Lakeview Cottage <br /> Retreat
+            Private Lakeview Cottages for Relaxing Nature Getaways
           </h1>
-          
+
           <p
             className={`${baseTransition} ${
               contentVisible
@@ -48,8 +50,9 @@ export default function Hero() {
                 : "opacity-0 translate-y-8"
             } text-lg sm:text-2xl xl:text-2xl mt-2 font-semibold text-white/70 leading-tight lg:max-w-2xl sm:max-w-lg max-w-md`}
           >
-            Discover an exclusive collection of private cottages where nature's
-            beauty meets comfort.
+            Stay in fully equipped private cottages surrounded by nature,
+            offering peaceful lake views, outdoor activities, and relaxing
+            holiday experiences in Canada.
           </p>
 
           <div

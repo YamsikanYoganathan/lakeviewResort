@@ -135,6 +135,7 @@ export default function CottageActivityGrid() {
             >
               <img
                 src={activity.image}
+                loading="lazy"
                 alt={activity.alt}
                 className="w-full h-full object-cover object-center transition-transform duration-400 group-hover:scale-105"
               />

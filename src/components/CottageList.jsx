@@ -68,6 +68,7 @@ export default function CottageList() {
             >
               <img
                 src={cottage.imageSrc}
+                loading="lazy"
                 alt={cottage.imageAlt}
                 className="w-full h-68 object-cover object-center transform group-hover:scale-105 transition-transform duration-400 saturate-120"
               />
